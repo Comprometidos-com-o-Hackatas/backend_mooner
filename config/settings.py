@@ -25,7 +25,12 @@ SECRET_KEY = 'django-insecure-(osvt1k=og43%0)n97-ix@6umge4@)+iyz-!a1-(kltgpvb=+5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:8000",
+]
 
 
 INSTALLED_APPS = [
@@ -125,3 +130,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": ("usuario.authentication.TokenAuthentication",),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}
+
+PASSAGE_APP_ID = "JF5Dpa2fP7xywnDewcRlD8Fy"
+PASSAGE_API_KEY = "Zx8bd9U3c4.yfFew2gbTZGa8txhItMYjHGC9HW8XXJcUOY9i7opqKWyWdqh2JLIetSiGF12uRry"
+PASSAGE_AUTH_STRATEGY = 2
+
