@@ -4,4 +4,5 @@ from usuario.router import router as UserRouter
 
 router = DefaultRouter()
 router.register(r'song',  views.SongViewSet)
+router.register(r'genre', views.GenreViewSet)
 router.registry.extend(UserRouter.registry)
