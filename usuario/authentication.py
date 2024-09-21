@@ -38,7 +38,5 @@ class TokenAuthentication(authentication.BaseAuthentication):
         try:
             psg_user_id: str = psg.authenticateRequest(request)
         except PassageError as e:
-            # print(e)
             raise AuthenticationFailed(e.message) from e
-
         return psg_user_id
