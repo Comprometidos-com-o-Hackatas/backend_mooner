@@ -11,8 +11,8 @@ class Usuario(AbstractUser):
     is_artist = models.BooleanField(default=False)
     about = models.TextField(null=True, blank=False)
     is_producer = models.BooleanField(default=False)
-    DDD = models.CharField(max_length=5, default=None)
-    telephone = models.CharField(max_length=11, default=None)
+    DDD = models.CharField(max_length=5, null=True, blank=True)
+    telephone = models.CharField(max_length=11, null=True, blank=True)
     followers = models.IntegerField(default=0)
 
     USERNAME_FIELD = "email"
