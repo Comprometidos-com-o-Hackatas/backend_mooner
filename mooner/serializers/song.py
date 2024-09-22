@@ -18,6 +18,23 @@ class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
         fields = '__all__'
+        depth = 2
+
+class SongListSerializer(serializers.ModelField):
+    cover_attachment_key = serializers.SlugRelatedField(
+        source="cover",
+        queryset=Image.objects.all(),
+        slug_field="attachment_key",
+        required=False,
+        write_only=True,
+    )
+    cover = ImageSerializer(
+        required=False,
+        read_only=True
+    )
+    class Meta:
+        model = Song
+        fields = '__all__'
 
 
 
