@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,10 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(osvt1k=og43%0)n97-ix@6umge4@)+iyz-!a1-(kltgpvb=+5'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:8000",
+]
 
 
 INSTALLED_APPS = [
@@ -37,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mooner',
     'rest_framework',
+    'rest_framework_simplejwt',
     'uploader',
     'usuario',
 ]
@@ -115,6 +124,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+GEMINI_API=os.getenv('GEMINI_API')
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -125,3 +136,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": ("usuario.authentication.TokenAuthentication", 'rest_framework_simplejwt.authentication.JWTAuthentication'),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}
+
+PASSAGE_APP_ID = "JF5Dpa2fP7xywnDewcRlD8Fy"
+PASSAGE_API_KEY = "Zx8bd9U3c4.yfFew2gbTZGa8txhItMYjHGC9HW8XXJcUOY9i7opqKWyWdqh2JLIetSiGF12uRry"
+PASSAGE_AUTH_STRATEGY = 2
+
