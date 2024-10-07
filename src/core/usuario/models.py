@@ -7,7 +7,6 @@ from .managers import CustomUserManager
 class Usuario(AbstractUser):
     username = None
     email = models.EmailField(_("e-mail address"), unique=True)
-    passage_id = models.CharField(max_length=255, unique=True)
     is_artist = models.BooleanField(default=False)
     about = models.TextField(null=True, blank=False)
     is_producer = models.BooleanField(default=False)

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'core.mooner',
     'core.uploader',
     'core.usuario',
+    "corsheaders",
     'rest_framework',
     'rest_framework_simplejwt',
 ]
@@ -58,9 +59,27 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware"
 ]
 
+
+
 ROOT_URLCONF = 'config.urls'
+
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:5173',
+    'http://localhost:5173',
+]
+
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
 
 TEMPLATES = [
     {
@@ -146,12 +165,8 @@ FILE_UPLOAD_PERMISSIONS = 0o640
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": ("core.usuario.authentication.TokenAuthentication", 'rest_framework_simplejwt.authentication.JWTAuthentication'),
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication'],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
 }
-
-PASSAGE_APP_ID = "JF5Dpa2fP7xywnDewcRlD8Fy"
-PASSAGE_API_KEY = "Zx8bd9U3c4.yfFew2gbTZGa8txhItMYjHGC9HW8XXJcUOY9i7opqKWyWdqh2JLIetSiGF12uRry"
-PASSAGE_AUTH_STRATEGY = 2
 
