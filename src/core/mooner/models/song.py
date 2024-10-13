@@ -1,4 +1,3 @@
-from typing import Iterable
 from django.db import models
 from core.uploader.models import Image, Document
 from .genre import Genre
