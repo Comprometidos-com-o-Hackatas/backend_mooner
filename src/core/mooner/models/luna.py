@@ -16,5 +16,5 @@ def get_luna_response(instance, created, sender, **kwargs):
         instance.response = luna_response.text
         instance.save(update_fields=['response'])
         print(luna_response.text)
-
+    
     
