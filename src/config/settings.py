@@ -37,6 +37,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'core.mooner',
     'core.uploader',
     'core.usuario',
+    'core.moon_wave',
     "corsheaders",
     'rest_framework',
     'rest_framework_simplejwt',
@@ -100,6 +102,14 @@ TEMPLATES = [
 AUTH_USER_MODEL = "usuario.Usuario"
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+ASGI_APPLICATION = 'config.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 
 # Database
