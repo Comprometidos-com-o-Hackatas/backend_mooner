@@ -1,10 +1,15 @@
 from ..models import History
-from ..serializers import HistorySerializer
+from ..serializers import HistorySerializer, CreateHistorySerializer
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.viewsets import ModelViewSet
+from utils.history_filter import HistoryFilter
 
 class HistoryViewSet(ModelViewSet):
     queryset = History.objects.all()
-    serializer_class = HistorySerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ('usuario',)
+    filterset_class = HistoryFilter
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return CreateHistorySerializer
+        return HistorySerializer
