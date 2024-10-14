@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework_simplejwt',
+    'simple_history',
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
-    "django.middleware.common.CommonMiddleware"
+    "django.middleware.common.CommonMiddleware",
+    'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
 
@@ -172,5 +175,11 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend'
     ],
     "PAGE_SIZE": 10,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Livraria API",
+    "DESCRIPTION": "API para gerenciamento de livraria, incluindo endpoints e documentação.",
+    "VERSION": "1.0.0",
+}
