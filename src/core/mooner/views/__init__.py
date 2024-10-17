@@ -3,3 +3,4 @@ from .genre import GenreViewSet
 from .producer import ProducerViewSet
 from .luna import LunaAIViewSet
 from .history import HistoryViewSet
+from .playlist import PlaylistViewSet
