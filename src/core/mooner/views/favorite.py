@@ -4,5 +4,5 @@ from ..models import Favorite
 from ..serializers import FavoriteSerializer
 
 class FavoriteViewSet(ModelViewSet):
-    queryset = Favorite
+    queryset = Favorite.objects.all()
     serializer_class = FavoriteSerializer
