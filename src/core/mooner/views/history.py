@@ -8,8 +8,11 @@ class HistoryViewSet(ModelViewSet):
     queryset = History.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_class = HistoryFilter
+    
+    http_method_names = ["get", "post", "put", "delete"]
 
     def get_serializer_class(self):
         if self.action == 'create':
             return CreateHistorySerializer
         return HistorySerializer
+

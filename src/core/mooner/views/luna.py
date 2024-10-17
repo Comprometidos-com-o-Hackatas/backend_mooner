@@ -8,3 +8,5 @@ class LunaAIViewSet(ModelViewSet):
     serializer_class = LunaAISerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ('usuario', )
+
+    http_method_names = ["get", "post"]

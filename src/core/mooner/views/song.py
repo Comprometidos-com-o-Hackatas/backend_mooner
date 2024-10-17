@@ -8,3 +8,5 @@ class SongViewSet(ModelViewSet):
     serializer_class = SongSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ('title', 'producer',)
+
+    http_method_names = ["get", "post", "put", "delete"]
