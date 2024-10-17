@@ -4,6 +4,8 @@ from core.usuario.models import Usuario
 from . import Song
 
 class Album(models.Model):
+    name = models.CharField(max_length=50, default='')
+    post_date = models.DateField(auto_now=True)
     artist = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     songs = models.ManyToManyField(Song)
 
