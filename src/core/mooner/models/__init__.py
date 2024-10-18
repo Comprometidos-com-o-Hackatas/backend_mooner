@@ -4,3 +4,6 @@ from .producer import Producer
 from .luna import LunaAI
 from .history import History
 from .album import Album
+from .favorite import Favorite
+from .playlist import Playlist
+
