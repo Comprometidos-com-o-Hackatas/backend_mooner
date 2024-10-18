@@ -27,7 +27,6 @@ from drf_spectacular.views import (
 
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
 from .router import router
 
 urlpatterns = [
