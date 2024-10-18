@@ -3,4 +3,6 @@ from .genre import GenreSerializer
 from .producer import ProducerSerializer
 from .luna import LunaAISerializer
 from .history import HistorySerializer, CreateHistorySerializer
+from .favorite import FavoriteSerializer
 from .playlist import PlaylistSerializer
+
