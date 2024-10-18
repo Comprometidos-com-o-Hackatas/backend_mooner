@@ -10,8 +10,6 @@ class Usuario(AbstractUser):
     is_artist = models.BooleanField(default=False)
     about = models.TextField(null=True, blank=False)
     is_producer = models.BooleanField(default=False)
-    DDD = models.CharField(max_length=5, null=True, blank=True)
-    telephone = models.CharField(max_length=11, null=True, blank=True)
     followers = models.IntegerField(default=0)
 
     USERNAME_FIELD = "email"
@@ -27,3 +25,14 @@ class Usuario(AbstractUser):
         verbose_name = "Usuário"
         verbose_name_plural = "Usuários"
         ordering = ["-date_joined"]
+
+class Collaborator(models.Model):
+    user = models.ForeignKey(Usuario, on_delete=models.PROTECT)
+    DDD = models.CharField(max_length=5)
+    telephone = models.CharField(max_length=11)
+    identity = models.CharField(max_length=11)
+
+    def __str__(self):
+        return self.user.email
+
+
