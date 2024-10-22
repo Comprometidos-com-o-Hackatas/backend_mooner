@@ -13,7 +13,7 @@ class Song(models.Model):
     player = models.ForeignKey(Document, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
     reproductions = models.IntegerField(default=0) 
     lyrics = models.TextField(null=True, blank=True)
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, default=None)
     country = models.CharField(max_length=50, default=None)
    
 
