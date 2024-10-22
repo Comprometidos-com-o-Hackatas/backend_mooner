@@ -1,7 +1,7 @@
-import os
+from django.conf import settings
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyAnxlo6QW7qp8PaosOdU-4ECehA9gHMnMA")
+genai.configure(api_key=settings.GEMINI_API)
 
 # Create the model
 generation_config ={
