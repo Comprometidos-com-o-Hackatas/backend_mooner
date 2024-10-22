@@ -1,10 +1,12 @@
 from django.db import models
 from core.uploader.models import Image, Document
+from core.usuario.models import Usuario as User
 from .genre import Genre
-from .producer import Producer
+
 
 class Song(models.Model):
     title = models.CharField(max_length=100)
+    artists = models.ManyToManyField(User)
     cover = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
     date_realized = models.DateField(auto_now_add=True)
     uploaded_on = models.DateField(auto_now=True)
@@ -14,7 +16,7 @@ class Song(models.Model):
     lyrics = models.TextField()
     genre = models.ManyToManyField(Genre)
     country = models.CharField(max_length=50, default=None)
-    producer = models.ForeignKey(Producer, on_delete=models.CASCADE, default=None)
+   
 
     class Meta:
         verbose_name = 'song'
