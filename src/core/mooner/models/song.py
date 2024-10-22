@@ -10,11 +10,10 @@ class Song(models.Model):
     cover = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
     date_realized = models.DateField(auto_now_add=True)
     uploaded_on = models.DateField(auto_now=True)
-    duration = models.DurationField()
     player = models.ForeignKey(Document, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
     reproductions = models.IntegerField(default=0) 
-    lyrics = models.TextField()
-    genre = models.ManyToManyField(Genre)
+    lyrics = models.TextField(null=True, blank=True)
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     country = models.CharField(max_length=50, default=None)
    
 
