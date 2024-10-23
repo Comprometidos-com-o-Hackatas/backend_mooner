@@ -3,8 +3,8 @@ from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-from .models import Usuario, Collaborator
-from .serializers import UsuarioSerializer, CollaboratorSerializer
+from ..models import Usuario
+from ..serializers import UsuarioSerializer
 
 
 class UsuarioViewSet(ModelViewSet):
@@ -17,6 +17,7 @@ class UsuarioViewSet(ModelViewSet):
         serializer = UsuarioSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-class CollaboratorViewSet(ModelViewSet):
-    queryset = Collaborator.objects.all().order_by("id")
-    serializer_class = CollaboratorSerializer
+
+
+
+
