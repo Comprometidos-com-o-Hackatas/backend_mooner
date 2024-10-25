@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+
 from dotenv import load_dotenv
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -48,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'core.mooner',
     'core.uploader',
     'core.usuario',
@@ -183,9 +187,27 @@ GEMINI_API=os.getenv('GEMINI_API')
 
 STATIC_URL = 'static/'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    'PREFIX': 'Mooner',
+}
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+if MODE in ["PRODUCTION", "MIGRATE"]:
+    CLOUDINARY_URL = "cloudinary://565711445643767:IUqLGohAjDObKXWnjV-XJQcbI4c@dzdrwmug3"
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    MEDIA_URL = '/images/'
+else:
+    MY_IP = "127.0.0.1"
+    MEDIA_URL = f"http://{MY_IP}:19003/images/"
+
+MEDIA_ENDPOINT = "/images/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "images/")
 FILE_UPLOAD_PERMISSIONS = 0o640
 
 
