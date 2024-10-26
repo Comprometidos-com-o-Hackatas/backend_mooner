@@ -1,9 +1,10 @@
 [project]
-name = "backend_hackaton"
+name = "backend_mooner"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
     {name = "luansilva", email = "luansilva250807@gmail.com"},
+    {name = "luansilva25", email = "luansilva250807@gmail.com"},
 ]
 dependencies = [
     "django>=5.0.7",

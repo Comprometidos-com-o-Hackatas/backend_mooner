@@ -1,4 +1,4 @@
-from .song import SongSerializer, SongListSerializer
+from .song import SongSerializer, SongListSerializer, SongDetailSerializer
 from .genre import GenreSerializer
 from .luna import LunaAISerializer
 from .history import HistorySerializer, CreateHistorySerializer

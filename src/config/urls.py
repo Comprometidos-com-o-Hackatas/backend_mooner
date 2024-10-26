@@ -28,6 +28,7 @@ from drf_spectacular.views import (
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from .router import router
 from core.usuario.views import verify_email
+from core.mooner.views import HistoryDestroyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path('api/verify_email/<str:verification_token>/', verify_email, name='verify_email'),
+    path('api/history/destroy/', HistoryDestroyView.as_view(), name='history_destroy'),
     path(
         "api/swagger/",
         SpectacularSwaggerView.as_view(url_name="schema"),

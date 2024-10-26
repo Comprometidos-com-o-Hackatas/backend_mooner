@@ -127,24 +127,13 @@ CHANNEL_LAYERS = {
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-if MODE == "PRODUCTION":
-    DATABASES = {
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-else:
-    DATABASES = {
-        "default":{
-            "ENGINE": os.environ.get("DATABASE_ENGINE"),
-            "HOST": os.environ.get('DATABASE_HOST'),
-            "NAME": os.environ.get("DATABASE_NAME"),
-            "PORT": os.environ.get("DATABASE_PORT"),
-            "USER": os.environ.get("DATABASE_USER"),
-            "PASSWORD": os.environ.get("DATABASE_PASSWORD")
-        }
-    }
+
 
 
 # Password validation

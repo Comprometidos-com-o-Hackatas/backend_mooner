@@ -1,40 +1,42 @@
-from ..models import Song
+from ..models import Song, Genre
 from rest_framework import serializers
-from core.uploader.serializers import ImageSerializer
-from core.uploader.models import Image
+from core.uploader.serializers import ImageSerializer, DocumentSerializer
+from core.uploader.models import Image, Document
+from core.usuario.models import Artist
 
-class SongSerializer(serializers.ModelSerializer):
-    cover_attachment_key = serializers.SlugRelatedField(
-        source="cover",
-        queryset=Image.objects.all(),
-        slug_field="attachment_key",
-        required=False,
-        write_only=True,
-    )
-    cover = ImageSerializer(
-        required=False,
-        read_only=True
-    )
+class SongDetailSerializer(serializers.ModelSerializer):
+    cover = ImageSerializer(required=False)
+    document = DocumentSerializer(required=False)
     class Meta:
         model = Song
         fields = '__all__'
         depth = 2
 
-class SongListSerializer(serializers.ModelField):
-    cover_attachment_key = serializers.SlugRelatedField(
-        source="cover",
+class SongListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Song
+        fields = '__all__'
+        depth = 1
+
+class SongSerializer(serializers.ModelSerializer):
+    artists = serializers.PrimaryKeyRelatedField(many=True, queryset=Artist.objects.all())
+    genre = serializers.SlugRelatedField(slug_field='description', queryset=Genre.objects.all())
+    cover = serializers.SlugRelatedField(
         queryset=Image.objects.all(),
         slug_field="attachment_key",
-        required=False,
-        write_only=True,
     )
-    cover = ImageSerializer(
-        required=False,
-        read_only=True
+    player = serializers.SlugRelatedField(
+        queryset=Document.objects.all(),
+        slug_field="attachment_key",
     )
     class Meta:
         model = Song
         fields = '__all__'
+
+
+        
+
+
 
 
 
