@@ -77,7 +77,7 @@ MIDDLEWARE = [
     'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
-
+MP_ACCESS_TOKEN = "APP_USR-2243807417187766-101412-0a4432fe9a8bd46349642546b011411e-2030454710"
 
 ROOT_URLCONF = 'config.urls'
 

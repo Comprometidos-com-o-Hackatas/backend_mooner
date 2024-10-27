@@ -11,6 +11,16 @@ class Usuario(AbstractUser):
     following = models.IntegerField(default=0, blank=True, null=True)
     is_artist = models.BooleanField(default=False, blank=True, null=True)
     token_verification = models.CharField(max_length=100, blank=True, null=True)
+
+    class PremiumChoices(models.TextChoices):
+        ECLIPSE = "Eclipse", _("Eclipse")
+        LUANOVA = "Lua Nova", _("Lua Nova")
+        APOLLO8 = "Apollo 8", _("Apollo 8")
+        ANOLUNAR = "Ano Lunar", _("Ano Lunar")
+        LUACHEIA = "Lua Cheia", _("Lua Cheia")
+
+
+    premium = models.CharField(max_length=50, choices=PremiumChoices.choices, default=None, null=True, blank=True)
     
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
