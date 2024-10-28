@@ -11,7 +11,7 @@ from core.email_verification.send_email_verification_artist import send_email_to
 
 
 class Artist(models.Model):
-    user = models.ForeignKey(Usuario, on_delete=models.CASCADE, blank=True, null=True)
+    user = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True)
     artistic_name = models.CharField(max_length=100, blank=True, null=True)
     following = models.IntegerField(default=0, blank=True, null=True)
     followers = models.IntegerField(default=0, blank=True, null=True)
@@ -22,9 +22,8 @@ class Artist(models.Model):
 
 @receiver(post_save, sender=Artist)
 def send_email_verification_to_become_artist(sender, instance, created, **kwargs):
-    print('sinal chamado')
     if created:
-        user = Usuario.objects.get(id=instance.user.id)
+        user = Usuario.objects.get(email=instance.user.email)
         token = str(uuid4())
 
         print('usuario chamado')
@@ -35,6 +34,6 @@ def send_email_verification_to_become_artist(sender, instance, created, **kwargs
         url = reverse('verify_email', kwargs={'verification_token': token})
 
         try:
-            send_email_to_user_to_be_an_artist(user_id=user.id, verify_url=url)
+            send_email_to_user_to_be_an_artist(user=user.email, verify_url=url)
         except ValueError as e:
             return Response(status=status.HTTP_400_BAD_REQUEST, data={'err': e})

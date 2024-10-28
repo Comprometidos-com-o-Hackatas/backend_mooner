@@ -3,8 +3,8 @@ import magic
 CONTENT_TYPE_ICO = "image/x-icon"
 CONTENT_TYPE_JPG = "image/jpeg"
 CONTENT_TYPE_PNG = "image/png"
-
 CONTENT_TYPE_PDF = "application/pdf"
+CONTENT_TYPE_MP3 = "audio/mpeg"
 
 
 def get_content_type(file):

@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 from config.ia_config import chat_session
 
 class LunaAI(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     answer = models.TextField()
     response = models.TextField(null=True, blank=True)
 
@@ -15,6 +15,5 @@ def get_luna_response(instance, created, sender, **kwargs):
         luna_response = chat_session.send_message(instance.answer)
         instance.response = luna_response.text
         instance.save(update_fields=['response'])
-        print(luna_response.text)
     
     

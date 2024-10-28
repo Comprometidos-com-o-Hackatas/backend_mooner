@@ -7,26 +7,25 @@ from django.conf import settings
 from celery import shared_task
 
 @shared_task
-def send_email_to_user_to_be_an_artist(user_id, verify_url):
-    user = User.objects.get(id=user_id)
+def send_email_to_user_to_be_an_artist(user, verify_url):
     link_verfication = f'http://localhost:8000{verify_url}'
     
     html_render = render_to_string('verification.html', {
-        'email': user.email,
+        'email': user,
         'verify': link_verfication 
     })
 
     email_multi_alternative = EmailMultiAlternatives(
         'Email de verificação',
         from_email=settings.EMAIL_HOST_USER,
-        to=[user.email]
+        to=[user]
     )
 
     email_multi_alternative.attach_alternative(html_render, 'text/html')
     email_multi_alternative.send()
 
-    print(user.email)
+    print(user)
 
-    return Response(status=status.HTTP_200_OK, data={'msg': f'email enviado para {user.email}'})
+    return Response(status=status.HTTP_200_OK, data={'msg': f'email enviado para {user}'})
 
 

@@ -19,7 +19,6 @@ class SongListSerializer(serializers.ModelSerializer):
         depth = 1
 
 class SongSerializer(serializers.ModelSerializer):
-    artists = serializers.PrimaryKeyRelatedField(many=True, queryset=Artist.objects.all())
     genre = serializers.SlugRelatedField(slug_field='description', queryset=Genre.objects.all())
     cover = serializers.SlugRelatedField(
         queryset=Image.objects.all(),
