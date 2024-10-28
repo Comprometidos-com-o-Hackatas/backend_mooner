@@ -1,4 +1,4 @@
-from ..models import Playlist, Song
+from ..models import Album, Song
 from core.usuario.models import Usuario
 
 from rest_framework import serializers
@@ -13,11 +13,11 @@ class SongSerializer(serializers.ModelSerializer):
         model = Song
         fields = '__all__'
 
-class PlaylistSerializer(serializers.ModelSerializer):
-    owners = UsuarioSerializer(many=True)
+class AlbumSerializer(serializers.ModelSerializer):
     songs = SongSerializer(many=True)
+    autors = UsuarioSerializer(many=True)
 
     class Meta:
-        model = Playlist
+        model = Album
         fields = '__all__'
         depth = 2

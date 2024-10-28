@@ -4,3 +4,7 @@ from .luna import LunaAI
 from .history import History
 from .favorite import Favorite
 from .playlist import Playlist
+from .albuns import Album
+from .community import Community
+from .communityPosts import CommunityPosts
+from .likedSongs import LikedSong
