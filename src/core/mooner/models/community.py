@@ -12,5 +12,5 @@ class Community(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, default=None)
     country = models.CharField(max_length=50, default=None)
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name

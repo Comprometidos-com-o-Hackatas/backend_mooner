@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:d63257d04b1205d919361c4a771eff66ae2ee0682323cb5571e1b752627152b1"
+content_hash = "sha256:e26ccd7fdaf55e53335fb66e06fe12d509b6908ae66afdf9a86b9c285fe3d41c"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -292,6 +292,20 @@ files = [
 ]
 
 [[package]]
+name = "cloudinary"
+version = "1.41.0"
+summary = "Python and Django SDK for Cloudinary"
+groups = ["default"]
+dependencies = [
+    "certifi",
+    "six",
+    "urllib3>=1.26.5",
+]
+files = [
+    {file = "cloudinary-1.41.0.tar.gz", hash = "sha256:e189739a796a7d2ad15c19971741d33a9300816b16c0282b4b14ccf1dd2948c0"},
+]
+
+[[package]]
 name = "constantly"
 version = "23.10.4"
 requires_python = ">=3.8"
@@ -363,6 +377,20 @@ dependencies = [
 files = [
     {file = "Django-5.1.2-py3-none-any.whl", hash = "sha256:f11aa87ad8d5617171e3f77e1d5d16f004b79a2cf5d2e1d2b97a6a1f8e9ba5ed"},
     {file = "Django-5.1.2.tar.gz", hash = "sha256:bd7376f90c99f96b643722eee676498706c9fd7dc759f55ebfaf2c08ebcdf4f0"},
+]
+
+[[package]]
+name = "django-cloudinary-storage"
+version = "0.3.0"
+summary = "Django package that provides Cloudinary storages for both media and static files as well as management commands for removing unnecessary files."
+groups = ["default"]
+dependencies = [
+    "cloudinary>=1.4.0",
+    "requests>=2.10.0",
+]
+files = [
+    {file = "django-cloudinary-storage-0.3.0.tar.gz", hash = "sha256:debd403a5f225c9d35c4af508ff4abc7fdc262129464134b60b2feeb2c44d3e1"},
+    {file = "django_cloudinary_storage-0.3.0-py3-none-any.whl", hash = "sha256:95c855c7334141b2a485ea7eb5716de87bb6ce0d848e205debb3a3ab7bbbd49a"},
 ]
 
 [[package]]
@@ -1332,6 +1360,17 @@ dependencies = [
 files = [
     {file = "werkzeug-3.0.4-py3-none-any.whl", hash = "sha256:02c9eb92b7d6c06f31a782811505d2157837cea66aaede3e217c7c27c039476c"},
     {file = "werkzeug-3.0.4.tar.gz", hash = "sha256:34f2371506b250df4d4f84bfe7b0921e4762525762bbd936614909fe25cd7306"},
+]
+
+[[package]]
+name = "whitenoise"
+version = "6.8.1"
+requires_python = ">=3.9"
+summary = "Radically simplified static file serving for WSGI applications"
+groups = ["default"]
+files = [
+    {file = "whitenoise-6.8.1-py3-none-any.whl", hash = "sha256:196ba04ca0a80f4a3f99f88381864f218a28b5fb5b44d29feea484d501fa0ba3"},
+    {file = "whitenoise-6.8.1.tar.gz", hash = "sha256:11042f39f1dcfbb3814726b9364703af6901706582d988e96494cfefdc3a89e2"},
 ]
 
 [[package]]

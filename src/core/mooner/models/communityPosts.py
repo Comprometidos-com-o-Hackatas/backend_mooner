@@ -11,5 +11,5 @@ class CommunityPosts(models.Model):
     cover = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
     songs = models.ForeignKey(Song, on_delete=models.PROTECT, null=True)
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
