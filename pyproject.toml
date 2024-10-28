@@ -5,18 +5,20 @@ description = "Default template for PDM package"
 authors = [
     {name = "luansilva", email = "luansilva250807@gmail.com"},
     {name = "luansilva25", email = "luansilva250807@gmail.com"},
+    {name = "Gabz047", email = "gabe1612mail@gmail.com"},
 ]
+
 dependencies = [
-    "django>=5.0.7",
-    "setuptools>=72.1.0",
+    "django>=5.1.2",
+    "setuptools>=75.2.0",
     "pillow>=11.0.0",
     "python-magic>=0.4.27",
     "djangorestframework>=3.15.2",
     "passage-identity>=2.1.4",
     "djangorestframework-simplejwt>=5.3.1",
-    "google-generativeai>=0.8.1",
+    "google-generativeai>=0.8.3",
     "python-dotenv>=1.0.1",
-    "django-cors-headers>=4.4.0",
+    "django-cors-headers>=4.5.0",
     "channels>=4.1.0",
     "daphne>=4.1.2",
     "django-filter>=24.3",
