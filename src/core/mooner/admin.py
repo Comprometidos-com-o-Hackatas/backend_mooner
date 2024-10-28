@@ -5,6 +5,11 @@ from simple_history import signals
 admin.site.register(models.LunaAI)
 admin.site.register(models.Song)
 admin.site.register(models.Genre)
+admin.site.register(models.Playlist)
+admin.site.register(models.Album)
+admin.site.register(models.Community)
+admin.site.register(models.CommunityPosts)
+admin.site.register(models.LikedSong)
 
 @admin.register(models.History)
 class HistoryAdmin(SimpleHistoryAdmin):

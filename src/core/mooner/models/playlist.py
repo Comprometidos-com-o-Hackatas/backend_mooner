@@ -8,5 +8,5 @@ class Playlist(models.Model):
     owners = models.ManyToManyField(Usuario)
     songs = models.ManyToManyField(Song)
 
-def __str__(self):
-    return self.name 
+    def __str__(self):
+        return self.name    
