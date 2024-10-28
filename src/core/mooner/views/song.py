@@ -2,13 +2,13 @@ from ..serializers import SongSerializer, SongDetailSerializer, SongListSerializ
 from ..models import Song
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
-from utils.song_filter import SongFilters
+from utils.song_filter import SongFilter
 
 class SongViewSet(ModelViewSet):
     queryset = Song.objects.all()
     serializer_class = SongSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = SongFilters
+    filterset_class = SongFilter
 
     def get_serializer_class(self):
         if self.action == 'retrieve':
