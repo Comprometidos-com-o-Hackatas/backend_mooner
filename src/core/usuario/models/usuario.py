@@ -7,7 +7,7 @@ from core.usuario.managers import CustomUserManager
 class Usuario(AbstractUser):
     username = None
     perfil = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None)
-    email = models.EmailField(_("e-mail address"), unique=True)
+    email = models.EmailField(_("e-mail address"), primary_key=True)
     following = models.IntegerField(default=0, blank=True, null=True)
     is_artist = models.BooleanField(default=False, blank=True, null=True)
     token_verification = models.CharField(max_length=100, blank=True, null=True)
@@ -17,7 +17,7 @@ class Usuario(AbstractUser):
         LUANOVA = "Lua Nova", _("Lua Nova")
         APOLLO8 = "Apollo 8", _("Apollo 8")
         ANOLUNAR = "Ano Lunar", _("Ano Lunar")
-        LUACHEIA = "Lua Cheia", _("Lua Cheia")
+        APOLLO11 = "Apollo 11", _("Apollo 11")
 
 
     premium = models.CharField(max_length=50, choices=PremiumChoices.choices, default=None, null=True, blank=True)

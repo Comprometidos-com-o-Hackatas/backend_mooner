@@ -16,16 +16,6 @@ class ArtistCreateSerializer(ModelSerializer):
         model = Artist
         fields = '__all__'
 
-    def create(self, validated_data):
-   
-        user_data = validated_data.pop('user')
-
-        user = User.objects.get(email=user_data)
-
-        artist = Artist.objects.create(user=user, **validated_data)
-
-        return artist
-
 
         
     

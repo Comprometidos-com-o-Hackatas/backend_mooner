@@ -8,7 +8,7 @@ from ..serializers import UsuarioSerializer
 
 
 class UsuarioViewSet(ModelViewSet):
-    queryset = Usuario.objects.all().order_by("id")
+    queryset = Usuario.objects.all().order_by("email")
     serializer_class = UsuarioSerializer
 
     @action(detail=False, methods=["get"], permission_classes=[IsAuthenticated])

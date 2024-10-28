@@ -14,7 +14,6 @@ class Song(models.Model):
     reproductions = models.IntegerField(default=0) 
     lyrics = models.TextField(null=True, blank=True)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, default=None)
-    country = models.CharField(max_length=50, default=None)
    
 
     class Meta:
@@ -23,6 +22,6 @@ class Song(models.Model):
         ordering = ['-date_realized']
     
     def __str__(self) -> str:
-        return self.title
+        return f"{self.title} - {self.artists.email}"
     
         
