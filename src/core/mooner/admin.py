@@ -10,6 +10,7 @@ admin.site.register(models.Album)
 admin.site.register(models.Community)
 admin.site.register(models.CommunityPosts)
 admin.site.register(models.LikedSong)
+admin.site.register(models.Following)
 
 @admin.register(models.History)
 class HistoryAdmin(SimpleHistoryAdmin):

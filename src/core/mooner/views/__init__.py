@@ -2,10 +2,10 @@ from .song import SongViewSet
 from .genre import GenreViewSet
 from .luna import LunaAIViewSet
 from .history import HistoryViewSet
-from .favorite import FavoriteViewSet
 from .playlist import PlaylistViewSet
 from .history_destruct import HistoryDestroyView
 from .albuns import AlbumViewSet
 from .community import CommunityViewSet
 from .communityPosts import CommunityPostsViewSet
 from .likedSongs import LikedSongsViewSet
+from .following import FollowingViewSet

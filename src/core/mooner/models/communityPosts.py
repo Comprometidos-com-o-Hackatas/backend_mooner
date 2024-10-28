@@ -1,7 +1,7 @@
 from django.db import models
 
 from core.usuario.models import Usuario
-from . import Song
+from . import Song, Community
 from core.uploader.models import Image
 
 class CommunityPosts(models.Model):
@@ -10,6 +10,7 @@ class CommunityPosts(models.Model):
     autor = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     cover = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
     songs = models.ForeignKey(Song, on_delete=models.PROTECT, null=True)
+    community = models.ForeignKey(Community, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return self.name
