@@ -96,11 +96,6 @@ CORS_ALLOW_METHODS = (
     "PUT",
 )
 
-SIMPLE_JWT = {
-    "USER_ID_FIELD": "email",
-    "USER_ID_CLAIM": "email",
-}
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -132,13 +127,24 @@ CHANNEL_LAYERS = {
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-DATABASES = {
+if MODE == "PRODUCTION":
+    DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
+else:
+    DATABASES = {
+        "default":{
+            "ENGINE": os.environ.get("DATABASE_ENGINE"),
+            "HOST": os.environ.get('DATABASE_HOST'),
+            "NAME": os.environ.get("DATABASE_NAME"),
+            "PORT": os.environ.get("DATABASE_PORT"),
+            "USER": os.environ.get("DATABASE_USER"),
+            "PASSWORD": os.environ.get("DATABASE_PASSWORD")
+        }
+    }
 
 
 # Password validation
@@ -180,7 +186,7 @@ GEMINI_API=os.getenv('GEMINI_API')
 
 
 STATIC_URL = 'static/'
-""""
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
@@ -190,15 +196,15 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-if MODE == "PRODUCTION":
+if MODE in ["PRODUCTION", "MIGRATE"]:
     CLOUDINARY_URL = "cloudinary://565711445643767:IUqLGohAjDObKXWnjV-XJQcbI4c@dzdrwmug3"
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     MEDIA_URL = '/images/'
-else:"
-"""""
-MEDIA_URL = "/images/"
+else:
+    MY_IP = "127.0.0.1"
+    MEDIA_URL = f"http://{MY_IP}:19003/images/"
 
 MEDIA_ENDPOINT = "/images/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "images/")
@@ -226,9 +232,9 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
 }
 
-EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST= "smtp.gmail.com"
-EMAIL_USE_TLS=True
-EMAIL_PORT=587
-EMAIL_HOST_USER= "luansilva250807@gmail.com"
-EMAIL_HOST_PASSWORD= "pjgn ixgg mczw ojss"
+EMAIL_BACKEND = os.environ.get("EMAIL_BACKEND")
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_USE_TLS = os.environ.get("EMAIL_USE_LTS")
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
