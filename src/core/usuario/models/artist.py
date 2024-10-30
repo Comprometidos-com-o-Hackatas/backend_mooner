@@ -18,6 +18,9 @@ class Artist(models.Model):
     instagram = models.URLField(max_length=255, blank=True, null=True)
     youtube = models.URLField(max_length=255, blank=True, null=True)
     twitter = models.URLField(max_length=255, blank=True, null=True)
+    
+    def __str__(self):
+        return self.artistic_name
 
 
 @receiver(post_save, sender=Artist)

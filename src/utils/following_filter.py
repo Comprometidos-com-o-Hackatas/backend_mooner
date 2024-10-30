@@ -1,10 +1,10 @@
 import django_filters
-from core.mooner.models import LikedSong
+from core.mooner.models import Following
 
 class FollowingFilter(django_filters.FilterSet):
-    user = django_filters.BaseInFilter(field_name='user', lookup_expr='in')
-    artist = django_filters.BaseInFilter(field_name='artist', lookup_expr='in')
+    user_id = django_filters.BaseInFilter(field_name='user__id', lookup_expr='in')
+    artist_id = django_filters.BaseInFilter(field_name='artist__id', lookup_expr='in')
 
     class Meta:
-        model = LikedSong
-        fields = ['artist', 'user']  
+        model = Following
+        fields = ['artist_id', 'user_id']  

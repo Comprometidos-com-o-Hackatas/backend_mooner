@@ -1,12 +1,12 @@
 from django.db import models
 from core.uploader.models import Image, Document
-from core.usuario.models import Usuario as User
+from core.usuario.models import Artist
 from .genre import Genre
 
 
 class Song(models.Model):
     title = models.CharField(max_length=100)
-    artists = models.ManyToManyField(User)
+    artists = models.ManyToManyField(Artist)
     cover = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
     date_realized = models.DateField(auto_now_add=True)
     uploaded_on = models.DateField(auto_now=True)
