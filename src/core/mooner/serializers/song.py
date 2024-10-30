@@ -16,7 +16,13 @@ class SongListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
         fields = '__all__'
-        depth = 1
+        depth = 2
+
+class ArtistListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Artist
+        fields = '__all__'
+        depth = 2
 
 class SongSerializer(serializers.ModelSerializer):
     genre = serializers.SlugRelatedField(slug_field='description', queryset=Genre.objects.all())
@@ -28,6 +34,8 @@ class SongSerializer(serializers.ModelSerializer):
         queryset=Document.objects.all(),
         slug_field="attachment_key",
     )
+    depth = 2
+
     class Meta:
         model = Song
         fields = '__all__'

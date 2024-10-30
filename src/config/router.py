@@ -3,7 +3,7 @@ from core.mooner import views
 from core.usuario.router import router as UserRouter
 from core.uploader.router import router as UploaderRouter
 router = DefaultRouter()
-router.register(r'song',  views.SongViewSet)
+router.register(r'songs',  views.SongViewSet)
 router.register(r'genre', views.GenreViewSet)
 router.register(r'luna', views.LunaAIViewSet)
 router.register(r'history', views.HistoryViewSet)

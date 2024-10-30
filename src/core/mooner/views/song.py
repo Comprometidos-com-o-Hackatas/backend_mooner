@@ -6,7 +6,6 @@ from utils.song_filter import SongFilter
 
 class SongViewSet(ModelViewSet):
     queryset = Song.objects.all()
-    serializer_class = SongSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = SongFilter
 

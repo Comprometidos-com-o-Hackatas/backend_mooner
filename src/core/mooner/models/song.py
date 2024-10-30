@@ -22,6 +22,5 @@ class Song(models.Model):
         ordering = ['-date_realized']
     
     def __str__(self) -> str:
-        return f"{self.title} - {self.artists.email}"
-    
-        
+        artists = ", ".join([artist.user.email for artist in self.artists.all()])
+        return f"{self.title} - {artists}"

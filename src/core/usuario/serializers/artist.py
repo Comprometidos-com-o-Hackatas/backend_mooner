@@ -7,7 +7,7 @@ class ArtistSerializer(ModelSerializer):
     class Meta:
         model = Artist
         fields = '__all__'
-        depth = 1
+        depth = 2
 
 class ArtistCreateSerializer(ModelSerializer):
     user = SlugRelatedField(slug_field="email", queryset=User.objects.all())
@@ -15,6 +15,7 @@ class ArtistCreateSerializer(ModelSerializer):
     class Meta:
         model = Artist
         fields = '__all__'
+        depth = 2
 
 
         
