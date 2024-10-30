@@ -1,6 +1,10 @@
 from rest_framework import serializers
 
-from core.uploader.helpers.files import CONTENT_TYPE_PDF, CONTENT_TYPE_MP3, get_content_type
+import uuid
+
+import cloudinary.uploader
+
+from core.uploader.helpers.files import CONTENT_TYPE_PDF, get_content_type, CONTENT_TYPE_MP3
 from core.uploader.models import Document
 
 
@@ -17,6 +21,23 @@ class DocumentUploadSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Invalid or corrupted document.")
         return value
 
+    def create(self, validated_data):
+        file = validated_data.pop('file')
+        response = cloudinary.uploader.upload(
+            file,
+            resource_type='video',
+            folder='Mooner/songs/'
+        )
+        validated_data['file'] = response['asset_folder']
+        validated_data['url'] = response['secure_url']
+        validated_data['public_id'] = uuid.uuid4()
+        document = Document.objects.create(**validated_data)
+        return document
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        representation['url'] = instance.url
+        return representation
 
 class DocumentSerializer(serializers.ModelSerializer):
     class Meta:

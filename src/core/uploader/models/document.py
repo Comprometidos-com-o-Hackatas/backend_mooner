@@ -32,10 +32,7 @@ class Document(models.Model):
     file = models.FileField(upload_to=document_file_path)
     description = models.CharField(max_length=255, blank=True)
     uploaded_on = models.DateTimeField(auto_now_add=True)
+    url = models.URLField(null=True, blank=True)
 
     def __str__(self) -> str:
         return f"{self.description} - {self.file.name}"
-
-    @property
-    def url(self) -> str:
-        return self.file.url  # pylint: disable=no-member
