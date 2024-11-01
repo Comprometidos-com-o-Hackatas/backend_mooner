@@ -13,4 +13,4 @@ class CommunityPosts(models.Model):
     community = models.ForeignKey(Community, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
-        return self.name
+        return self.title

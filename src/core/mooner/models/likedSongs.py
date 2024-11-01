@@ -5,7 +5,7 @@ from . import Song
 
 
 class LikedSong(models.Model):
-    song = models.ForeignKey(Song, on_delete=models.PROTECT, null=True)
+    song = models.ForeignKey(Song, on_delete=models.PROTECT)
     user = models.ForeignKey(Usuario, on_delete=models.PROTECT)
 
     def __str__(self):
