@@ -1,5 +1,4 @@
 set -o errexit
-export DJANGO_SETTINGS_MODULE="src.config.settings"
 export PYTHONPATH=$PYTHONPATH:/opt/render/project/src/src
 pip install --upgrade pip
 pip install -r requirements.txt
