@@ -32,6 +32,7 @@ django-simple-history==3.7.0
 djangorestframework==3.15.2
 djangorestframework-simplejwt==5.3.1
 drf-spectacular==0.27.2
+gevent==24.10.3
 google-ai-generativelanguage==0.6.10
 google-api-core[grpc]==2.22.0
 google-api-python-client==2.149.0
@@ -39,8 +40,11 @@ google-auth==2.35.0
 google-auth-httplib2==0.2.0
 google-generativeai==0.8.3
 googleapis-common-protos==1.65.0
+greenlet==3.1.1; platform_python_implementation == "CPython"
 grpcio==1.67.1
 grpcio-status==1.67.1
+gunicorn==23.0.0
+h11==0.14.0
 httplib2==0.22.0
 hyperlink==21.0.0
 idna==3.10
@@ -50,11 +54,13 @@ jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
 kombu==5.4.2
 mercadopago==2.2.3
+packaging==24.1
 passage-identity==2.5.1
 pillow==11.0.0
 prompt-toolkit==3.0.48
 proto-plus==1.25.0
 protobuf==5.28.3
+psycopg2==2.9.10
 psycopg2-binary==2.9.10
 pyasn1==0.6.1
 pyasn1-modules==0.4.1
@@ -83,8 +89,9 @@ typing-extensions==4.12.2
 tzdata==2024.2
 uritemplate==4.1.1
 urllib3==2.0.7
+uvicorn==0.32.0
 vine==5.1.0
-waitress==3.0.1
 wcwidth==0.2.13
 whitenoise==6.8.2
+zope-event==5.0
 zope-interface==7.1.1
