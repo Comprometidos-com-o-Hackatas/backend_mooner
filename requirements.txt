@@ -56,7 +56,6 @@ kombu==5.4.2
 mercadopago==2.2.3
 packaging==24.1
 passage-identity==2.5.1
-pdm==2.20.0
 pillow==11.0.0
 prompt-toolkit==3.0.48
 proto-plus==1.25.0
