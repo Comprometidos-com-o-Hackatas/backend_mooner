@@ -3,7 +3,7 @@ from .genre import GenreSerializer
 from .luna import LunaAISerializer
 from .history import HistorySerializer, CreateHistorySerializer
 from .playlist import PlaylistSerializer
-from .albuns import AlbumSerializer
+from .albuns import AlbumSerializer, AlbumCreateSerializer
 from .community import CommunitySerializer
 from .communityPosts import CommunityPostsSerializer
 from .likedSongs import LikedSongSerializer

@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('uploader', '0001_initial'),
-        ('usuario', '0001_initial'),
+        ('usuario', '0002_alter_usuario_premium'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -37,14 +37,6 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Following',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('artist', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='artist', to='usuario.artist')),
-                ('user', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='user', to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-        migrations.CreateModel(
             name='LunaAI',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -62,7 +54,7 @@ class Migration(migrations.Migration):
                 ('uploaded_on', models.DateField(auto_now=True)),
                 ('reproductions', models.IntegerField(default=0)),
                 ('lyrics', models.TextField(blank=True, null=True)),
-                ('artists', models.ManyToManyField(to='usuario.artist')),
+                ('artists', models.ManyToManyField(to=settings.AUTH_USER_MODEL)),
                 ('cover', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='uploader.image')),
                 ('genre', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='mooner.genre')),
                 ('player', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='uploader.document')),
@@ -135,7 +127,6 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=160)),
                 ('description', models.TextField(max_length=850, null=True)),
                 ('autor', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to=settings.AUTH_USER_MODEL)),
-                ('community', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='mooner.community')),
                 ('cover', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='uploader.image')),
                 ('songs', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='mooner.song')),
             ],
@@ -145,12 +136,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=90)),
-                ('description', models.TextField(max_length=650, null=True)),
-                ('country', models.CharField(default=None, max_length=50)),
                 ('autor', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='usuario.artist')),
                 ('cover', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='uploader.image')),
-                ('genre', models.ForeignKey(default=None, on_delete=django.db.models.deletion.CASCADE, to='mooner.genre')),
-                ('songs', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, to='mooner.song')),
+                ('songs', models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='mooner.song')),
             ],
         ),
     ]

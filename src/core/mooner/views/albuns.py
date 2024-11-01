@@ -1,4 +1,4 @@
-from ..serializers import AlbumSerializer
+from ..serializers import AlbumSerializer,AlbumCreateSerializer
 from ..models import Album
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
@@ -9,3 +9,8 @@ class AlbumViewSet(ModelViewSet):
     serializer_class = AlbumSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = AlbumFilter
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return AlbumCreateSerializer
+        return AlbumSerializer
