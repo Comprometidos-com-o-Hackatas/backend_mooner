@@ -2,6 +2,7 @@ from rest_framework.routers import DefaultRouter
 from core.mooner import views
 from core.usuario.router import router as UserRouter
 from core.uploader.router import router as UploaderRouter
+
 router = DefaultRouter()
 router.register(r'songs',  views.SongViewSet)
 router.register(r'genre', views.GenreViewSet)
