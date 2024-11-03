@@ -28,7 +28,6 @@ def send_email_verification_to_become_artist(sender, instance, created, **kwargs
     if created:
         user = Usuario.objects.get(email=instance.user.email)
         token = str(uuid4())
-
         print('usuario chamado')
 
         user.token_verification = token

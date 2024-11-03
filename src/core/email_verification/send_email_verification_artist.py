@@ -9,6 +9,8 @@ from celery import shared_task
 @shared_task
 def send_email_to_user_to_be_an_artist(user, verify_url):
     link_verfication = f'http://localhost:8000{verify_url}'
+
+    print('função executada' , user)
     
     html_render = render_to_string('verification.html', {
         'email': user,
@@ -24,7 +26,7 @@ def send_email_to_user_to_be_an_artist(user, verify_url):
     email_multi_alternative.attach_alternative(html_render, 'text/html')
     email_multi_alternative.send()
 
-    print(user)
+    print(email_multi_alternative)
 
     return Response(status=status.HTTP_200_OK, data={'msg': f'email enviado para {user}'})
 

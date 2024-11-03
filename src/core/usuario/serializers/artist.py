@@ -11,7 +11,6 @@ class ArtistSerializer(ModelSerializer):
 
 class ArtistCreateSerializer(ModelSerializer):
     user = SlugRelatedField(slug_field="email", queryset=User.objects.all())
-
     class Meta:
         model = Artist
         fields = '__all__'
