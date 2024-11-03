@@ -1,12 +1,20 @@
 from rest_framework import serializers
-
-import uuid
-
 import cloudinary.uploader
-
+import uuid
+import time
 from core.uploader.helpers.files import CONTENT_TYPE_PDF, get_content_type, CONTENT_TYPE_MP3
 from core.uploader.models import Document
+timestamp = int(time.time())
 
+CLOUD_NAME = "dzdrwmug3"
+API_KEY = "565711445643767"
+API_SECRET = "IUqLGohAjDObKXWnjV-XJQcbI4c"
+
+cloudinary.config(
+    cloud_name=CLOUD_NAME,
+    api_key=API_KEY,
+    api_secret=API_SECRET
+)
 
 class DocumentUploadSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,16 +31,20 @@ class DocumentUploadSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         file = validated_data.pop('file')
-        response = cloudinary.uploader.upload(
-            file,
-            resource_type='video',
-            folder='Mooner/songs/'
-        )
-        validated_data['file'] = response['asset_folder']
-        validated_data['url'] = response['secure_url']
-        validated_data['public_id'] = uuid.uuid4()
-        document = Document.objects.create(**validated_data)
-        return document
+        try:
+            response = cloudinary.uploader.upload(
+                file,
+                resource_type='raw',
+                folder=f'Mooner/songs/',
+            )
+            validated_data['url'] = response['secure_url']
+            validated_data['public_id'] = response['public_id']
+            validated_data['public_id'] = uuid.uuid4()
+            document = Document.objects.create(**validated_data)
+            return document
+        except cloudinary.exceptions.Error as e:
+            print("Erro ao fazer upload para o Cloudinary:", str(e))
+            raise serializers.ValidationError("Upload falhou.")
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)

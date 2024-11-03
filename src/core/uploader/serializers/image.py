@@ -1,11 +1,9 @@
 import cloudinary.uploader
-
 import uuid
-
 from rest_framework import serializers
-
 from core.uploader.helpers.files import CONTENT_TYPE_JPG, CONTENT_TYPE_PNG
 from core.uploader.models import Image
+
 
 
 class ImageUploadSerializer(serializers.ModelSerializer):
@@ -23,10 +21,11 @@ class ImageUploadSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         file = validated_data.pop('file')
+        folder = "Mooner/images/"
         response = cloudinary.uploader.upload(
             file,
-            resource_type='image',
-            folder='Mooner/images/'
+            folder=folder,
+            resource_type='raw',
         )
         validated_data['file'] = response['asset_folder']
         validated_data['url'] = response['secure_url']

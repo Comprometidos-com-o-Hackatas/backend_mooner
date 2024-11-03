@@ -2,7 +2,6 @@ import mimetypes
 import uuid
 
 from django.db import models
-
 from core.uploader.helpers.files import get_content_type
 
 
@@ -10,7 +9,7 @@ def document_file_path(document, _) -> str:
     content_type = get_content_type(document.file)
     extension: str = mimetypes.guess_extension(content_type)
 
-    return f"documents/{document.public_id}{extension or ''}"
+    return f"Mooner/songs/{document.public_id}{extension or ''}"
 
 
 class Document(models.Model):

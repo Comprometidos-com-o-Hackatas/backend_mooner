@@ -15,6 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 from datetime import timedelta
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://render.com"
 ]
 
-MODE = os.environ.get("MODE")
+MODE = "PRODUCTION"
 
 INSTALLED_APPS = [
     'channels',
@@ -127,22 +128,10 @@ CHANNEL_LAYERS = {
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-if MODE == 'PRODUCTION':
-    DATABASES = {
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
-        "default":{
-            "ENGINE": os.environ.get("DATABASE_ENGINE"),
-            "HOST": os.environ.get('DATABASE_HOST'),
-            "NAME": os.environ.get("DATABASE_NAME"),
-            "PORT": os.environ.get("DATABASE_PORT"),
-            "USER": os.environ.get("DATABASE_USER"),
-            "PASSWORD": os.environ.get("DATABASE_PASSWORD")
         }
     }
 
@@ -195,16 +184,22 @@ SIMPLE_JWT = {
 
 }
 
+CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME')
+API_KEY= os.environ.get('CLOUDINARY_API_KEY')
+API_SECRET= os.environ.get('CLOUDINARY_API_SECRET')
+
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    'CLOUD_NAME': CLOUD_NAME,
+    'API_KEY': API_KEY ,
+    'API_SECRET': API_SECRET,
     'PREFIX': 'Mooner',
 }
 
+
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-if MODE in ["PRODUCTION", "MIGRATE"]:
+if MODE == 'PRODUCTION':
     CLOUDINARY_URL = "cloudinary://565711445643767:IUqLGohAjDObKXWnjV-XJQcbI4c@dzdrwmug3"
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
