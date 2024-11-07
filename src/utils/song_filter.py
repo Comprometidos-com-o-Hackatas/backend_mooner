@@ -10,5 +10,5 @@ class SongFilter(django_filters.FilterSet):
         fields = ['search']
     
     def get_title_or_artist(self, queryset, name, value):
-        return queryset.filter(Q(title__icontains=value) | Q(artists__artistic_name__icontains=value) | Q(genre__description__icontains=value))
+        return queryset.filter(Q(title__icontains=value) | Q(artists__artistic_name__icontains=value) | Q(genre__description=value))
 

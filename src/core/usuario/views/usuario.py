@@ -6,11 +6,10 @@ from rest_framework.permissions import IsAuthenticated
 from ..models import Usuario
 from ..serializers import UsuarioSerializer
 
-
 class UsuarioViewSet(ModelViewSet):
     queryset = Usuario.objects.all().order_by("email")
     serializer_class = UsuarioSerializer
-
+    
     @action(detail=False, methods=["get"], permission_classes=[IsAuthenticated])
     def me(self, request):
         user = request.user

@@ -16,6 +16,7 @@ class CustomUserAdmin(UserAdmin):
         "email",
         "is_staff",
         "is_active",
+        'is_artist'
     )
     list_filter = (
         "email",
@@ -30,6 +31,7 @@ class CustomUserAdmin(UserAdmin):
                 "fields": (
                     "first_name",
                     "last_name",
+                    'is_artist',
                 )
             },
         ),

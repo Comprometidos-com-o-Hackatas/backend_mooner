@@ -5,7 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from utils.song_filter import SongFilter
 
 class SongViewSet(ModelViewSet):
-    queryset = Song.objects.all()
+    queryset = Song.objects.all().order_by("reproductions")
     filter_backends = [DjangoFilterBackend]
     filterset_class = SongFilter
 
