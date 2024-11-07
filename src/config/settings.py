@@ -41,7 +41,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://render.com"
 ]
 
-MODE = "PRODUCTION"
+MODE = os.environ.get("MODE")
 
 INSTALLED_APPS = [
     'channels',
