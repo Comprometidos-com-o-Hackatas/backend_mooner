@@ -136,17 +136,19 @@ DATABASES = {
         }
 }
 """""""""
+load_dotenv()
 
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get("DATABASE_ENGINE"),
         "HOST": os.environ.get("DATABASE_HOST"),
-        "DATABASE": os.environ.get("DATABASE_NAME"),
+        "NAME": os.environ.get("DATABASE_NAME"),
         "PORT": os.environ.get("DATABASE_PORT"),
         "USER": os.environ.get("DATABASE_USER"),
         "PASSWORD": os.environ.get("DATABASE_PASSWORD")
     }
 }
+
 
 
 
