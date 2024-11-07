@@ -1,23 +1,17 @@
-from ..models import Playlist, Song
+from ..models import Playlist
 from core.usuario.models import Usuario
-
 from rest_framework import serializers
 
-class UsuarioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Usuario
-        fields = '__all__'
-
-class SongSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Song
-        fields = '__all__'
-
-class PlaylistSerializer(serializers.ModelSerializer):
-    owners = UsuarioSerializer(many=True)
-    songs = SongSerializer(many=True)
-
+class PlaylistCreateSerializer(serializers.ModelSerializer):
+    owners = serializers.PrimaryKeyRelatedField(queryset=Usuario.objects.all(), many=True)  # Definindo o campo
     class Meta:
         model = Playlist
-        fields = '__all__'
+        fields = ['name', 'songs', 'owners']
+
+class PlaylistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Playlist
+        fields = ['name', 'songs', 'owners']
         depth = 2
+
+    
