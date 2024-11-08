@@ -26,7 +26,7 @@ class Artist(models.Model):
 @receiver(post_save, sender=Artist)
 def send_email_verification_to_become_artist(sender, instance, created, **kwargs):
     if created:
-        user = Usuario.objects.get(email=instance.user.email)
+        user = Usuario.objects.get(email=instance.user)
         token = str(uuid4())
         print('usuario chamado')
 

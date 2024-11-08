@@ -11,6 +11,6 @@ class PlaylistViewSet(ModelViewSet):
     filterset_class = PlaylistFilter
 
     def get_serializer_class(self):
-        if self.action == 'create':
+        if self.action == 'create' or self.action == 'update':
             return PlaylistCreateSerializer
         return PlaylistSerializer
