@@ -7,10 +7,10 @@ from rest_framework import serializers
 class PlaylistCreateSerializer(serializers.ModelSerializer):
     owners = serializers.PrimaryKeyRelatedField(queryset=Usuario.objects.all(), many=True)
     songs = serializers.PrimaryKeyRelatedField(queryset=Song.objects.all(), many=True) 
-    # cover = serializers.SlugRelatedField(slug_field=;) # Definindo o campo
+    cover = serializers.SlugRelatedField(slug_field='attachment_key', queryset=Image.objects.all()) # Definindo o campo
     class Meta:
         model = Playlist
-        fields = ['name', 'songs', 'owners']
+        fields = ['name', 'songs', 'owners', 'cover']
 
 class PlaylistSerializer(serializers.ModelSerializer):
     class Meta:
