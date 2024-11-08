@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'core.uploader',
     'core.usuario',
     'core.moon_wave',
+    "core.django_populate.infra.populate",
     "corsheaders",
     'django_filters',
     'rest_framework',
@@ -136,8 +137,8 @@ DATABASES = {
         }
 }
 
-load_dotenv()
-"""
+
+""""
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get("DATABASE_ENGINE"),
@@ -147,8 +148,8 @@ DATABASES = {
         "USER": os.environ.get("DATABASE_USER"),
         "PASSWORD": os.environ.get("DATABASE_PASSWORD")
     }
-}
-"""
+}"
+"""""""""
 
 
 

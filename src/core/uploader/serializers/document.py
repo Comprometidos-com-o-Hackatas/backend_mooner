@@ -34,7 +34,7 @@ class DocumentUploadSerializer(serializers.ModelSerializer):
         try:
             response = cloudinary.uploader.upload(
                 file,
-                resource_type='raw',
+                resource_type='video',
                 folder=f'Mooner/songs/',
             )
             validated_data['url'] = response['secure_url']
