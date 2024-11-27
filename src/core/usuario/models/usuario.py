@@ -11,6 +11,7 @@ class Usuario(AbstractUser):
     following = models.IntegerField(default=0, blank=True, null=True)
     is_artist = models.BooleanField(default=False, blank=True, null=True)
     token_verification = models.CharField(max_length=100, blank=True, null=True)
+    description = models.TextField(null=True, blank=True)
 
     class PremiumChoices(models.TextChoices):
         ECLIPSE = "Eclipse", _("Eclipse")

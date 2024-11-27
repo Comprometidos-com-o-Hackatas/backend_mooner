@@ -6,6 +6,7 @@ class UsuarioSerializer(ModelSerializer):
     class Meta:
         model = Usuario
         fields = "__all__"
+        depth = 2
     
     def create(self, validated_data):
         validated_data['password'] = make_password(validated_data['password'])
