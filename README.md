@@ -5,13 +5,28 @@
    pdm install
    ```
 
-2. Execute o servidor de desenvolvimento:
+2. Intale o Redis:
+
+   ```
+   sudo apt install redis
+   ```
+
+3. Execute o servidor de desenvolvimento:
 
    ```
    pdm run dev
    ```
 
-3. Execute o websocket:
+
+4. Certifique-se de que o websocket está rodando:
+
+    ```
+    redis-cli ping
+    ```
+    caso reotorne `PONG` tudo esta OK
+
+
+5. Execute o websocket:
 
     ```
     cd src/
