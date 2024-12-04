@@ -5,11 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-<<<<<<< HEAD
-content_hash = "sha256:ffeeefa83a777e932e14bc42a0032324c6cb6ddf20730f293da4c8a90b22d1de"
-=======
 content_hash = "sha256:4d577ce98e9ceff57c7139a822f5adb03ba7f3aec80d217097ca5f8b46d67719"
->>>>>>> f1e5b23 (REFACTOR: refactoring recomendation api)
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
