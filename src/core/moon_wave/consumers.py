@@ -26,9 +26,19 @@ class MoonWaveConsumer(AsyncWebsocketConsumer):
             action = data_json.get('action', None)
             timestamp = data_json.get('timestamp', None)
             queue = data_json.get('queue', None)
+            history = data_json.get('history', None)
+            state = data_json.get('state', None)
 
             await self.channel_layer.group_send(
-                self.room_group_name, {"type": "moon_wave_message", "action": action, "timestamp": timestamp, "song": song, "queue": queue}
+                self.room_group_name, {
+                    "type": "moon_wave_message", 
+                    "action": action, 
+                    "timestamp": timestamp, 
+                    "song": song, 
+                    "queue": queue, 
+                    "state": state,
+                    "history": history,
+                }
             )
 
         except json.JSONDecodeError as e:
@@ -39,6 +49,14 @@ class MoonWaveConsumer(AsyncWebsocketConsumer):
         timestamp = event["timestamp"]
         song = event["song"]
         queue = event["queue"]
+        state = event["state"]
+        history = event["history"]
 
-
-        await self.send(text_data=json.dumps({'action': action, 'timestamp': timestamp, 'song': song, 'queue': queue}))
+        await self.send(text_data=json.dumps({
+            'action': action, 
+            'timestamp': timestamp, 
+            'song': song, 
+            'queue': queue,
+            'state': state,
+            'history': history,
+        }))
