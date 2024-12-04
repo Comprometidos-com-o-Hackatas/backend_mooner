@@ -35,7 +35,12 @@ dependencies = [
     "gevent>=24.10.3",
     "uvicorn>=0.32.0",
     "mutagen>=1.47.0",
+<<<<<<< HEAD
     "channels-redis>=4.2.1",
+=======
+    "pandas>=2.2.3",
+    "scikit-learn>=1.5.2",
+>>>>>>> f1e5b23 (REFACTOR: refactoring recomendation api)
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
