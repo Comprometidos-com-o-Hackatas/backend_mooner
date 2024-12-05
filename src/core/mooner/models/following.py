@@ -7,4 +7,4 @@ class Following(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.PROTECT, default=None, blank=True, null=True, related_name='artist')
 
     def __str__(self):
-        return self.user
+        return self.user.email

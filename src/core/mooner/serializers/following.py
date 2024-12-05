@@ -6,3 +6,4 @@ class FollowingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Following
         fields = '__all__'
+        depth = 2
