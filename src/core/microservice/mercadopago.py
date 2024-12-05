@@ -36,31 +36,3 @@ class AssignView(APIView):
         except Exception as e:
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR, data={'err': str(e)})
 
-    def get(self, request, email):
-        try:
-            user = User.objects.get(email=email)
-            payment_data = {
-                "transaction_amount": 0.01,
-                "description": "Pagamento via PIX",
-                "payment_method_id": "pix",
-                "payer": {
-                    "email": email,
-                    "first_name": 'luan',
-                    "last_name": 'silva',
-                    "identification": {
-                        "type": "CPF",
-                        "number": "13980382966"
-                    }
-                },
-            }
-
-            payment_response = sdk.payment().create(payment_data)
-            payment = payment_response.get("response")
-            return Response(status=status.HTTP_200_OK, data={
-                        "qr_code": payment["point_of_interaction"]["transaction_data"]["qr_code"],
-                        "qr_code_base64": payment["point_of_interaction"]["transaction_data"]["qr_code_base64"]
-                    })
-        except User.DoesNotExist:
-            return Response(status=status.HTTP_400_BAD_REQUEST, data={'err': 'Usuário não encontrado'})
-        except Exception as e:
-            return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR, data={'err': str(e)})

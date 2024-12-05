@@ -35,10 +35,7 @@ dependencies = [
     "gevent>=24.10.3",
     "uvicorn>=0.32.0",
     "mutagen>=1.47.0",
-<<<<<<< HEAD
-=======
     "channels-redis>=4.2.1",
->>>>>>> 6f9d5b69080da970105aa675b4eef44bda7f5a05
     "pandas>=2.2.3",
     "scikit-learn>=1.5.2",
 ]
