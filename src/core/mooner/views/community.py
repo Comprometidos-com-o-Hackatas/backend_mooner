@@ -1,4 +1,4 @@
-from ..serializers import CommunitySerializer
+from ..serializers import CommunitySerializer, CommunityCreateSerializer
 from ..models import Community
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
@@ -9,3 +9,8 @@ class CommunityViewSet(ModelViewSet):
     serializer_class = CommunitySerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = CommunityFilter
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return CommunityCreateSerializer
+        return CommunitySerializer
