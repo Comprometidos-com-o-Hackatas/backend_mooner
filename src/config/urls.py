@@ -39,6 +39,7 @@ urlpatterns = [
     path('api/verify_email/<str:verification_token>/', verify_email, name='verify_email'),
     path('api/history/destroy/', HistoryDestroyView.as_view(), name='history_destroy'),
     path('api/payment/<str:email>/', AssignView.as_view(), name='mp_assign'),
+    path('api/payment/', AssignView.as_view(), name='mp_assign'),
     path('api/recomendations/<str:user>/', RecomendationView.as_view(), name='recomendation'),
     path(
         "api/swagger/",
