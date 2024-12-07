@@ -43,11 +43,11 @@ def populate_images():
 
                     # Criar o documento no banco de dados
                     cover = Image.objects.create(
-                        description=file.replace(".jpg", ""),
+                        description=os.path.splitext(file)[0],
                         file=content_file,
                         url=response['secure_url']
                     )
                     cover.save()
-                    print(f"Upload e criação do documento {file} concluído com sucesso.")
+                    print(f"Upload e criação do documento {os.path.splitext(file)[0]} concluído com sucesso.")
         except Exception as e:
             print(f"Erro ao processar o arquivo {file}: {e}")

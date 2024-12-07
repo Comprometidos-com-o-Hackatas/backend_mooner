@@ -19,7 +19,9 @@ def Populate_songs():
                 player=document,
                 cover=image,
                 genre=genre,
-                lyrics=data_songs['lyrics']
+                lyrics=data_songs['lyrics'],
+                background_light_color=data_songs['light_color'],
+                background_dark_color=data_songs['dark_color'],
             )
             song.artists.set(add_artist_arr)
             print('musica populada', song)

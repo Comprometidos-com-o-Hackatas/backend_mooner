@@ -6,6 +6,7 @@ from core.django_populate.infra.populate.management.commands._artist import Arti
 from core.django_populate.infra.populate.management.commands._documents import populate_documents
 from core.django_populate.infra.populate.management.commands._images import populate_images
 from core.django_populate.infra.populate.management.commands._songs import Populate_songs
+from core.django_populate.infra.populate.management.commands._albuns import Populate_albums
 
 class Command(BaseCommand):
     """
@@ -54,6 +55,11 @@ class Command(BaseCommand):
             help="Insert all songs in database"
         )
         parser.add_argument(
+            "--albums",
+            action="store_true",
+            help="Insert all albums in database"
+        )
+        parser.add_argument(
             "--all",
             action='store_true',
             help="Insert all itens in database"
@@ -73,6 +79,8 @@ class Command(BaseCommand):
                 self.__handle_images()
             if options.get("songs"):
                 self.__handle_songs()
+            if options.get("albums"):
+                self.__handle_albums()
             if options.get("all"):
                 self.__handle_all()
 
@@ -114,13 +122,19 @@ class Command(BaseCommand):
         self.stdout.write("Populating images in the database...", ending=' ')
         populate_images()
         self.stdout.write(self.style.SUCCESS("OK"))
+        
+    def __handle_albums(self) -> None:
+        self.stdout.write("Populating albums in the database...", ending=' ')
+        Populate_albums()
+        self.stdout.write(self.style.SUCCESS("OK"))
 
     def __handle_all(self) -> None:
         self.stdout.write("Populating data in the database...", ending=" ")
+        populate_documents()
+        populate_images()
         Populate_genre()
         Populate_Users()
         Artist_Populate()
-        populate_documents()
-        populate_images()
         Populate_songs()
+        Populate_albums()
         self.stdout.write(self.style.SUCCESS("OK"))

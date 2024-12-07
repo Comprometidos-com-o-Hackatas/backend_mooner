@@ -81,23 +81,27 @@
 
 artist = [
     {
-     "user": "usuariodeteste1@teste.com",
-     "artistic_name": "Matue",
-    },
-    {
-     "user": "usuariodeteste2@teste.com",
-     "artistic_name": "Péricles",
-    },
-    {
-     "user": "usuariodeteste3@teste.com",
-     "artistic_name": "Chico Buarque",
-    },
-    {
-     "user": "usuariodeteste4@teste.com",
+     "user": "ALEE@gmail.com",
      "artistic_name": "Alee",
     },
     {
-     "user": "usuariodeteste5@teste.com",
-     "artistic_name": "Mc Hariel",
-    }
+     "user": "ANEZZI@gmail.com",
+     "artistic_name": "Anezzi",
+    },
+    {
+     "user": "KLISMAN@gmail.com",
+     "artistic_name": "Klisman",
+    },
+    {
+     "user": "BRANDAO@gmail.com",
+     "artistic_name": "Brandão 85",
+    },
+    {
+     "user": "SENNDY@gmail.com",
+     "artistic_name": "Senndy",
+    },
+    {
+     "user": "LZ-DAS-SETE@gmail.com",
+     "artistic_name": "Lz Das Sete",
+    },
 ]
