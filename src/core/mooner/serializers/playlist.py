@@ -10,7 +10,7 @@ class PlaylistCreateSerializer(serializers.ModelSerializer):
     cover = serializers.SlugRelatedField(slug_field='attachment_key', queryset=Image.objects.all()) # Definindo o campo
     class Meta:
         model = Playlist
-        fields = ['name', 'songs', 'owners', 'cover']
+        fields = ['name', 'songs', 'owners', 'cover', 'background_dark_color', 'background_light_color']
 
 class PlaylistSerializer(serializers.ModelSerializer):
 

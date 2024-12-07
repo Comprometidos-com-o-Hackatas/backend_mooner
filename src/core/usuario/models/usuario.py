@@ -6,11 +6,14 @@ from core.usuario.managers import CustomUserManager
 
 class Usuario(AbstractUser):
     username = None
-    perfil = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None)
+    perfil = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='perfil')
     email = models.EmailField(_("e-mail address"), primary_key=True)
     following = models.IntegerField(default=0, blank=True, null=True)
     is_artist = models.BooleanField(default=False, blank=True, null=True)
     token_verification = models.CharField(max_length=100, blank=True, null=True)
+    background_image = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='background')
+    background_dark_color = models.CharField(null='#000000', max_length=7)
+    background_light_color = models.CharField(null='#000000', max_length=7)
     description = models.TextField(null=True, blank=True)
 
     class PremiumChoices(models.TextChoices):

@@ -8,6 +8,8 @@ class Playlist(models.Model):
     name = models.CharField(max_length=50)
     owners = models.ManyToManyField(Usuario)
     songs = models.ManyToManyField(Song, null=True, blank=True)
+    background_dark_color = models.CharField(null='#000000', max_length=7)
+    background_light_color = models.CharField(null='#000000', max_length=7)
     cover = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
 
     def __str__(self):

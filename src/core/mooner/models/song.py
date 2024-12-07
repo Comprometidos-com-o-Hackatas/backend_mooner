@@ -14,6 +14,8 @@ class Song(models.Model):
     reproductions = models.IntegerField(default=0) 
     lyrics = models.TextField(null=True, blank=True)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, default=None)
+    background_dark_color = models.CharField(null='#000000', max_length=7)
+    background_light_color = models.CharField(null='#000000', max_length=7)
    
 
     class Meta:
