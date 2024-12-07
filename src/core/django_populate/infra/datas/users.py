@@ -85,4 +85,17 @@ users = [
         "background": 'KLISMAN-background',
         "description": "Klisman, um trapper baiano nascido e criado no Centro Histórico de Salvador, é um artista profundamente influenciado pela rica diversidade musical da cidade. Desde cedo, acompanhava seu pai, um renomado percussionista de bandas icônicas do Pagode Baiano e Axé, como Olodum e É o Tchan, o que moldou sua identidade artística. Ele ganhou destaque no cenário nacional com sua coautoria no hit 'Dentro de Você', interpretado por Filipe Ret e Kevin o Chris. Além disso, Klisman lançou músicas como 'Oh Mãe', 'Ainda Penso em Você' (em colaboração com Anezzi) e 'NEUROSES' (com o rapper Alee). Recentemente, ele lançou o EP 'KD O CHTC?', que já ultrapassou um milhão de streams, consolidando seu lugar na cena do trap brasileiro."
     },
+    {
+        "email": 'LEGIAO@gmail.com',
+        "password": 'alee1234',
+        "is_superuser": False,
+        "is_staff": False,
+        "is_active": False,
+        "is_artist": True,
+        "light_color": '#daa545',
+        "dark_color": '#524627',
+        "perfil": 'LEGIAO-perfil',
+        "background": 'LEGIAO-background',
+        "description": "A Legião Urbana foi formada em 1982, em Brasília, liderada por Renato Russo, com Marcelo Bonfá na bateria. Inicialmente, a banda contou com Eduardo Paraná (guitarra) e Paulo Paulista (teclados), mas logo a formação foi consolidada com Dado Villa-Lobos na guitarra. Com letras marcantes e sonoridade única, se tornou um dos maiores ícones do rock nacional. Seu álbum de estreia trouxe o primeiro grande sucesso, 'Será', seguido por clássicos como 'Pais e Filhos', 'Eduardo e Mônica' e 'Que País É Este'. A banda encerrou suas atividades em 1996 após a morte de Renato Russo, mas seu legado permanece vivo, influenciando gerações e sendo referência na música brasileira."
+    },
 ]
