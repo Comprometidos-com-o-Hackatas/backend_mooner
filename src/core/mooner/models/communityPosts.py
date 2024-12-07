@@ -2,6 +2,8 @@ from django.db import models
 from core.usuario.models import Usuario
 from . import  Community
 from core.uploader.models import Image
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 class CommunityPosts(models.Model):
     description = models.TextField(null=True, max_length=850)
@@ -12,3 +14,6 @@ class CommunityPosts(models.Model):
 
     def __str__(self):
         return self.description
+    
+
+    
