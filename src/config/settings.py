@@ -79,7 +79,7 @@ MIDDLEWARE = [
     'simple_history.middleware.HistoryRequestMiddleware',
 ]
 
-MP_ACCESS_TOKEN = "APP_USR-2243807417187766-101412-0a4432fe9a8bd46349642546b011411e-2030454710"
+MP_ACCESS_TOKEN = "APP_USR-4641725572400359-120712-675961d244e70b413d73ee280f4bc858-2058281679"
 
 ROOT_URLCONF = 'config.urls'
 
@@ -88,7 +88,9 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5174',
     'http://localhost:5174',
-    "https://render.com"
+    "https://render.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:8080"
 ]
 
 CORS_ALLOW_METHODS = (

@@ -35,4 +35,8 @@ class AssignView(APIView):
             return Response(status=status.HTTP_400_BAD_REQUEST, data={'err': 'Usuário não encontrado'})
         except Exception as e:
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR, data={'err': str(e)})
+        
+    
+
+        
 
