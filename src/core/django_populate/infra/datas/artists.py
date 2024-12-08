@@ -84,9 +84,7 @@ artist = [
      "user": "LEGIAO@gmail.com",
      "artistic_name": "Legião Urbana",
     },
-]
-
-"""     {
+    {
      "user": "ALEE@gmail.com",
      "artistic_name": "Alee",
     },
@@ -109,4 +107,6 @@ artist = [
     {
      "user": "LZ-DAS-SETE@gmail.com",
      "artistic_name": "Lz Das Sete",
-    }, """
+    },
+]
+
