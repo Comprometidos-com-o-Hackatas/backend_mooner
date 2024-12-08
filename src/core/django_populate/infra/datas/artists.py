@@ -104,4 +104,8 @@ artist = [
      "user": "LZ-DAS-SETE@gmail.com",
      "artistic_name": "Lz Das Sete",
     },
+    {
+     "user": "MATUE@gmail.com",
+     "artistic_name": "Matuê",
+    }
 ]

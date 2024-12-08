@@ -85,4 +85,17 @@ users = [
         "background": 'KLISMAN-background',
         "description": "Klisman, um trapper baiano nascido e criado no Centro Histórico de Salvador, é um artista profundamente influenciado pela rica diversidade musical da cidade. Desde cedo, acompanhava seu pai, um renomado percussionista de bandas icônicas do Pagode Baiano e Axé, como Olodum e É o Tchan, o que moldou sua identidade artística. Ele ganhou destaque no cenário nacional com sua coautoria no hit 'Dentro de Você', interpretado por Filipe Ret e Kevin o Chris. Além disso, Klisman lançou músicas como 'Oh Mãe', 'Ainda Penso em Você' (em colaboração com Anezzi) e 'NEUROSES' (com o rapper Alee). Recentemente, ele lançou o EP 'KD O CHTC?', que já ultrapassou um milhão de streams, consolidando seu lugar na cena do trap brasileiro."
     },
+    {
+        "email": "MATUE@gmail.com",
+        "password": "matue1234",
+        "is_superuser": False,
+        "is_staff": False,
+        "is_active": False,
+        "is_artist": True,
+        "light_color": '#000000',
+        "dark_color": '#6B23FF',
+        "perfil": 'MATUE-perfil',
+        "background": 'MATUE-mdt',
+        "description": "Matuê nasceu em Fortaleza, capital do Ceará. Durante sua infância, aos oito anos de idade, se mudou com seus pais para Oakland, cidade localizada no estado da Califórnia, nos Estados Unidos. Ficando por três anos no país, conseguiu se tornar fluente em língua inglesa, até voltar para o Brasil em 2004, aos 11 anos de idade .Estudando em escola pública, Matuê começou a ter contato e se interessar pelo mundo do Rap, mas ainda na sua adolescência passou por momentos difíceis após perder sua avó, que era uma pessoa que sempre o apoiava. Ele começou a trabalhar como vendedor em uma loja de roupas de um shopping e depois de um tempo, aproveitando sua experiência com a língua inglesa, virou professor particular de inglês. Foi com esse emprego que ele conseguiu juntar um dinheiro para começar a investir na sua carreira musical"
+    }
 ]
