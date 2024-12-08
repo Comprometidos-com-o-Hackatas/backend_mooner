@@ -30,5 +30,9 @@ artist = [
     {
      "user": "MATUE@gmail.com",
      "artistic_name": "Matuê",
-    }
+    },
+    {
+     "user": "QUEEN@gmail.com",
+     "artistic_name": "Queen",
+    },
 ]

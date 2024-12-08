@@ -111,4 +111,17 @@ users = [
         "background": 'LEGIAO-background',
         "description": "A Legião Urbana foi formada em 1982, em Brasília, liderada por Renato Russo, com Marcelo Bonfá na bateria. Inicialmente, a banda contou com Eduardo Paraná (guitarra) e Paulo Paulista (teclados), mas logo a formação foi consolidada com Dado Villa-Lobos na guitarra. Com letras marcantes e sonoridade única, se tornou um dos maiores ícones do rock nacional. Seu álbum de estreia trouxe o primeiro grande sucesso, 'Será', seguido por clássicos como 'Pais e Filhos', 'Eduardo e Mônica' e 'Que País É Este'. A banda encerrou suas atividades em 1996 após a morte de Renato Russo, mas seu legado permanece vivo, influenciando gerações e sendo referência na música brasileira."
     },
+    {
+        "email": 'QUEEN@gmail.com',
+        "password": 'alee1234',
+        "is_superuser": False,
+        "is_staff": False,
+        "is_active": False,
+        "is_artist": True,
+        "light_color": '#c8c8c8',
+        "dark_color": '#6e6e6e',
+        "perfil": 'QUEEN-perfil',
+        "background": 'QUEEN-background',
+        "description": "O Queen é uma das bandas mais icônicas e influentes da história do rock, formada em 1970 em Londres. Composta por Freddie Mercury (vocal e piano), Brian May (guitarra), Roger Taylor (bateria) e John Deacon (baixo), a banda alcançou o sucesso mundial com uma mistura única de rock, ópera e música pop. Seus maiores sucessos incluem clássicos como 'Bohemian Rhapsody', 'We Will Rock You', 'We Are the Champions' e 'Radio Ga Ga'. Conhecidos por suas performances ao vivo épicas e inovadoras, o Queen continua a ser uma referência no cenário musical, com sua música atravessando gerações. Após a morte de Freddie Mercury em 1991, a banda seguiu com outros vocalistas, mantendo viva sua história e legado."
+    },
 ]
