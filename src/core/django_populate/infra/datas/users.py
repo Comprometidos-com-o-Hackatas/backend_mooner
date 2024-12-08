@@ -87,7 +87,7 @@ users = [
     },
     {
         "email": "MATUE@gmail.com",
-        "password": "matue1234",
+        "password": 'alee1234',
         "is_superuser": False,
         "is_staff": False,
         "is_active": False,
@@ -97,5 +97,18 @@ users = [
         "perfil": 'MATUE-perfil',
         "background": 'MATUE-mdt',
         "description": "Matuê nasceu em Fortaleza, capital do Ceará. Durante sua infância, aos oito anos de idade, se mudou com seus pais para Oakland, cidade localizada no estado da Califórnia, nos Estados Unidos. Ficando por três anos no país, conseguiu se tornar fluente em língua inglesa, até voltar para o Brasil em 2004, aos 11 anos de idade .Estudando em escola pública, Matuê começou a ter contato e se interessar pelo mundo do Rap, mas ainda na sua adolescência passou por momentos difíceis após perder sua avó, que era uma pessoa que sempre o apoiava. Ele começou a trabalhar como vendedor em uma loja de roupas de um shopping e depois de um tempo, aproveitando sua experiência com a língua inglesa, virou professor particular de inglês. Foi com esse emprego que ele conseguiu juntar um dinheiro para começar a investir na sua carreira musical"
-    }
+    },
+    {
+        "email": 'LEGIAO@gmail.com',
+        "password": "matue1234",
+        "is_superuser": False,
+        "is_staff": False,
+        "is_active": False,
+        "is_artist": True,
+        "light_color": '#daa545',
+        "dark_color": '#524627',
+        "perfil": 'LEGIAO-perfil',
+        "background": 'LEGIAO-background',
+        "description": "A Legião Urbana foi formada em 1982, em Brasília, liderada por Renato Russo, com Marcelo Bonfá na bateria. Inicialmente, a banda contou com Eduardo Paraná (guitarra) e Paulo Paulista (teclados), mas logo a formação foi consolidada com Dado Villa-Lobos na guitarra. Com letras marcantes e sonoridade única, se tornou um dos maiores ícones do rock nacional. Seu álbum de estreia trouxe o primeiro grande sucesso, 'Será', seguido por clássicos como 'Pais e Filhos', 'Eduardo e Mônica' e 'Que País É Este'. A banda encerrou suas atividades em 1996 após a morte de Renato Russo, mas seu legado permanece vivo, influenciando gerações e sendo referência na música brasileira."
+    },
 ]
