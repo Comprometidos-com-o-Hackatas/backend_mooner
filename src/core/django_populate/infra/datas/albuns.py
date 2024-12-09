@@ -38,6 +38,20 @@ albuns = [
         "dark_color": '#020113',
         "date_realized": "1985-07-07",
     },
+    {
+    "name": "Queen - A Night at the Opera",
+    "autor": "Queen",
+    "songs": [
+        "Seaside Rendezvous", "Sweety Lady", "You're My Best Friend", 
+        "Prophet Song", "Love of My Life", "Lazing on a Sunday Afternoon", 
+        "Good Company", "God Save the Queen", "Bohemian Rhapsody", 
+        "39", "Death on Two Legs", "I’m in Love with My Car"
+    ],
+    "cover": "QUEEN-album",
+    "light_color": '#afa0ae',
+    "dark_color": '#943284',
+    "date_realized": "1975-11-21",
+    }
 ]
 
  
