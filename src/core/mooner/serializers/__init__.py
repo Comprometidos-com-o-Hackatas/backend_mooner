@@ -7,6 +7,6 @@ from .albuns import AlbumSerializer, AlbumCreateSerializer
 from .community import CommunitySerializer, CommunityCreateSerializer
 from .communityPosts import CommunityPostsSerializer
 from .likedSongs import LikedSongSerializer
-from .following import FollowingSerializer
+from .following import FollowingSerializer, FollowingCreateSerializer
 
 
