@@ -17,6 +17,7 @@ import os
 from datetime import timedelta
 import cloudinary
 import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -145,6 +146,7 @@ CHANNEL_LAYERS = {
 
 DATABASES = {
     'default': {
+        'default': dj_database_url.config(default=os.environ.get("DATABASE_URL")),
         'ENGINE': os.environ.get("DATABASE_ENGINE"),
         "HOST": os.environ.get("DATABASE_HOST"),
         "NAME": os.environ.get("DATABASE_NAME"),
