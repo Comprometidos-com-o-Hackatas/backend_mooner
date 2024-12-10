@@ -122,8 +122,6 @@ TEMPLATES = [
 
 AUTH_USER_MODEL = "usuario.Usuario"
 
-WSGI_APPLICATION = 'config.wsgi.application'
-
 ASGI_APPLICATION = 'config.asgi.application'
 
 CHANNEL_LAYERS = {

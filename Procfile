@@ -1,2 +1,2 @@
-web: gunicorn --pythonpath src config.wsgi:application -k uvicorn.workers.UvicornWorker
-web: PYTHONPATH=src daphne -p 16798 config.asgi:application
+web: gunicorn --pythonpath src config.asgi:application -k uvicorn.workers.UvicornWorker
+web: PYTHONPATH=src daphne -b 0.0.0.0 -p 16798 config.asgi:application

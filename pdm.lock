@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:bd81c4f318513f032c5040c1eb34646baa34e9b5209b6d215b3906665839f269"
+content_hash = "sha256:df20c0e5a73a75e215df5ee9453744e19b31c41655295c5e22c2f06e79376b3d"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -788,6 +788,32 @@ files = [
 ]
 
 [[package]]
+name = "h2"
+version = "4.1.0"
+requires_python = ">=3.6.1"
+summary = "HTTP/2 State-Machine based protocol implementation"
+groups = ["default"]
+dependencies = [
+    "hpack<5,>=4.0",
+    "hyperframe<7,>=6.0",
+]
+files = [
+    {file = "h2-4.1.0-py3-none-any.whl", hash = "sha256:03a46bcf682256c95b5fd9e9a99c1323584c3eec6440d379b9903d709476bc6d"},
+    {file = "h2-4.1.0.tar.gz", hash = "sha256:a83aca08fbe7aacb79fec788c9c0bac936343560ed9ec18b82a13a12c28d2abb"},
+]
+
+[[package]]
+name = "hpack"
+version = "4.0.0"
+requires_python = ">=3.6.1"
+summary = "Pure-Python HPACK header compression"
+groups = ["default"]
+files = [
+    {file = "hpack-4.0.0-py3-none-any.whl", hash = "sha256:84a076fad3dc9a9f8063ccb8041ef100867b1878b25ef0ee63847a5d53818a6c"},
+    {file = "hpack-4.0.0.tar.gz", hash = "sha256:fc41de0c63e687ebffde81187a948221294896f6bdc0ae2312708df339430095"},
+]
+
+[[package]]
 name = "httplib2"
 version = "0.22.0"
 requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
@@ -800,6 +826,17 @@ dependencies = [
 files = [
     {file = "httplib2-0.22.0-py3-none-any.whl", hash = "sha256:14ae0a53c1ba8f3d37e9e27cf37eabb0fb9980f435ba405d546948b009dd64dc"},
     {file = "httplib2-0.22.0.tar.gz", hash = "sha256:d7a10bc5ef5ab08322488bde8c726eeee5c8618723fdb399597ec58f3d82df81"},
+]
+
+[[package]]
+name = "hyperframe"
+version = "6.0.1"
+requires_python = ">=3.6.1"
+summary = "HTTP/2 framing layer for Python"
+groups = ["default"]
+files = [
+    {file = "hyperframe-6.0.1-py3-none-any.whl", hash = "sha256:0ec6bafd80d8ad2195c4f03aacba3a8265e57bc4cff261e802bf39970ed02a15"},
+    {file = "hyperframe-6.0.1.tar.gz", hash = "sha256:ae510046231dc8e9ecb1a6586f63d2347bf4c8905914aa84ba585ae85f28a914"},
 ]
 
 [[package]]
@@ -1059,6 +1096,16 @@ files = [
     {file = "pillow-11.0.0-cp312-cp312-win_amd64.whl", hash = "sha256:8ec4a89295cd6cd4d1058a5e6aec6bf51e0eaaf9714774e1bfac7cfc9051db47"},
     {file = "pillow-11.0.0-cp312-cp312-win_arm64.whl", hash = "sha256:27a7860107500d813fcd203b4ea19b04babe79448268403172782754870dac25"},
     {file = "pillow-11.0.0.tar.gz", hash = "sha256:72bacbaf24ac003fea9bff9837d1eedb6088758d41e100c1552930151f677739"},
+]
+
+[[package]]
+name = "priority"
+version = "1.3.0"
+summary = "A pure-Python implementation of the HTTP/2 priority tree"
+groups = ["default"]
+files = [
+    {file = "priority-1.3.0-py2.py3-none-any.whl", hash = "sha256:be4fcb94b5e37cdeb40af5533afe6dd603bd665fe9c8b3052610fc1001d5d1eb"},
+    {file = "priority-1.3.0.tar.gz", hash = "sha256:6bc1961a6d7fcacbfc337769f1a382c8e746566aaa365e78047abe9f66b2ffbe"},
 ]
 
 [[package]]
@@ -1522,7 +1569,7 @@ files = [
 
 [[package]]
 name = "twisted"
-version = "24.10.0"
+version = "24.11.0"
 requires_python = ">=3.8.0"
 summary = "An asynchronous networking framework written in Python"
 groups = ["default"]
@@ -1536,13 +1583,30 @@ dependencies = [
     "zope-interface>=5",
 ]
 files = [
-    {file = "twisted-24.10.0-py3-none-any.whl", hash = "sha256:67aa7c8aa94387385302acf44ade12967c747858c8bcce0f11d38077a11c5326"},
-    {file = "twisted-24.10.0.tar.gz", hash = "sha256:02951299672595fea0f70fa2d5f7b5e3d56836157eda68859a6ad6492d36756e"},
+    {file = "twisted-24.11.0-py3-none-any.whl", hash = "sha256:fe403076c71f04d5d2d789a755b687c5637ec3bcd3b2b8252d76f2ba65f54261"},
+    {file = "twisted-24.11.0.tar.gz", hash = "sha256:695d0556d5ec579dcc464d2856b634880ed1319f45b10d19043f2b57eb0115b5"},
 ]
 
 [[package]]
 name = "twisted"
-version = "24.10.0"
+version = "24.11.0"
+extras = ["http2"]
+requires_python = ">=3.8.0"
+summary = "An asynchronous networking framework written in Python"
+groups = ["default"]
+dependencies = [
+    "h2<5.0,>=3.2",
+    "priority<2.0,>=1.1.0",
+    "twisted==24.11.0",
+]
+files = [
+    {file = "twisted-24.11.0-py3-none-any.whl", hash = "sha256:fe403076c71f04d5d2d789a755b687c5637ec3bcd3b2b8252d76f2ba65f54261"},
+    {file = "twisted-24.11.0.tar.gz", hash = "sha256:695d0556d5ec579dcc464d2856b634880ed1319f45b10d19043f2b57eb0115b5"},
+]
+
+[[package]]
+name = "twisted"
+version = "24.11.0"
 extras = ["tls"]
 requires_python = ">=3.8.0"
 summary = "An asynchronous networking framework written in Python"
@@ -1551,11 +1615,11 @@ dependencies = [
     "idna>=2.4",
     "pyopenssl>=21.0.0",
     "service-identity>=18.1.0",
-    "twisted==24.10.0",
+    "twisted==24.11.0",
 ]
 files = [
-    {file = "twisted-24.10.0-py3-none-any.whl", hash = "sha256:67aa7c8aa94387385302acf44ade12967c747858c8bcce0f11d38077a11c5326"},
-    {file = "twisted-24.10.0.tar.gz", hash = "sha256:02951299672595fea0f70fa2d5f7b5e3d56836157eda68859a6ad6492d36756e"},
+    {file = "twisted-24.11.0-py3-none-any.whl", hash = "sha256:fe403076c71f04d5d2d789a755b687c5637ec3bcd3b2b8252d76f2ba65f54261"},
+    {file = "twisted-24.11.0.tar.gz", hash = "sha256:695d0556d5ec579dcc464d2856b634880ed1319f45b10d19043f2b57eb0115b5"},
 ]
 
 [[package]]

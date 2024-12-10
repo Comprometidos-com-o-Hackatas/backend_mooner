@@ -39,6 +39,7 @@ dependencies = [
     "scikit-learn>=1.5.2",
     "django-heroku>=0.3.1",
     "uvicorn>=0.32.1",
+    "twisted[http2]>=24.11.0",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
