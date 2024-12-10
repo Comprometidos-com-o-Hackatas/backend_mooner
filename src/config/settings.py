@@ -16,6 +16,7 @@ from dotenv import load_dotenv
 import os
 from datetime import timedelta
 import cloudinary
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,6 +78,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     'simple_history.middleware.HistoryRequestMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 MP_ACCESS_TOKEN = "APP_USR-4641725572400359-120712-675961d244e70b413d73ee280f4bc858-2058281679"
@@ -128,7 +130,13 @@ CHANNEL_LAYERS = {
     'default': {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+            "hosts": [{
+                "host": os.environ.get("REDIS_HOST"),
+                "port": 16798,
+                "decode_responses": True,
+                "username": os.environ.get("REDIS_USERNAME"),
+                "password": os.environ.get("REDIS_PASSWORD"),
+            }],
         },
     },
 }
@@ -138,15 +146,6 @@ CHANNEL_LAYERS = {
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-}
-
-
-""""
-DATABASES = {
     'default': {
         'ENGINE': os.environ.get("DATABASE_ENGINE"),
         "HOST": os.environ.get("DATABASE_HOST"),
@@ -155,8 +154,7 @@ DATABASES = {
         "USER": os.environ.get("DATABASE_USER"),
         "PASSWORD": os.environ.get("DATABASE_PASSWORD")
     }
-}"
-"""""""""
+}
 
 
 
@@ -225,7 +223,7 @@ CLOUDINARY_STORAGE = {
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 if MODE == 'PRODUCTION':
-    CLOUDINARY_URL = "cloudinary://565711445643767:IUqLGohAjDObKXWnjV-XJQcbI4c@dzdrwmug3"
+    CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -266,3 +264,6 @@ EMAIL_USE_TLS=True
 EMAIL_PORT=587
 EMAIL_HOST_USER="luansilva250807@gmail.com"
 EMAIL_HOST_PASSWORD="pjgn ixgg mczw ojss"
+
+
+django_heroku.settings(locals())

@@ -8,9 +8,9 @@ import cloudinary
 import uuid
 
 # Configuração do Cloudinary
-CLOUD_NAME = "dzdrwmug3"
-API_KEY = "565711445643767"
-API_SECRET = "IUqLGohAjDObKXWnjV-XJQcbI4c"
+CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
+API_KEY = os.environ.get("CLOUDINARY_API_KEY")
+API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
 
 cloudinary.config(
     cloud_name=CLOUD_NAME,
