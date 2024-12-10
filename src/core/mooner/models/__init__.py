@@ -9,4 +9,5 @@ from .communityPosts import CommunityPosts
 from .likedSongs import LikedSong
 from .favorite import Favorite
 from .following import Following
+from .CommunityUsers import CommunityUsers
 

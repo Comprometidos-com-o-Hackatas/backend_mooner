@@ -90,7 +90,7 @@ users = [
         "password": 'alee1234',
         "is_superuser": False,
         "is_staff": False,
-        "is_active": False,
+        "is_active": True,
         "is_artist": True,
         "light_color": '#000000',
         "dark_color": '#6B23FF',

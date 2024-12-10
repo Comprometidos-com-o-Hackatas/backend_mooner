@@ -1,6 +1,7 @@
 from ..models import Community
 from rest_framework import serializers
 from core.uploader.models import Image
+from core.usuario.models import Artist
 
 
 class CommunityCreateSerializer(serializers.ModelSerializer):
@@ -9,6 +10,10 @@ class CommunityCreateSerializer(serializers.ModelSerializer):
         slug_field="attachment_key",
         required=False,
         write_only=True,
+    )
+    autor = serializers.SlugRelatedField(
+        queryset=Artist.objects.all(),
+        slug_field="artistic_name",
     )
     class Meta:
         model = Community

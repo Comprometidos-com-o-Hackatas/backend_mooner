@@ -9,3 +9,4 @@ from .community import CommunityViewSet
 from .communityPosts import CommunityPostsViewSet
 from .likedSongs import LikedSongsViewSet
 from .following import FollowingViewSet
+from .CommunityUsers import CommunityUsersViewSet

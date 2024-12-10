@@ -5,8 +5,9 @@ from .history import HistorySerializer, CreateHistorySerializer
 from .playlist import PlaylistSerializer, PlaylistCreateSerializer
 from .albuns import AlbumSerializer, AlbumCreateSerializer
 from .community import CommunitySerializer, CommunityCreateSerializer
-from .communityPosts import CommunityPostsSerializer
+from .communityPosts import CommunityPostsSerializer, CommunityPostsCreateSerializer
 from .likedSongs import LikedSongSerializer
 from .following import FollowingSerializer, FollowingCreateSerializer
+from .CommunityUsers import CommunityUsersCreateSerializers, CommunityUsersSerializers
 
 
