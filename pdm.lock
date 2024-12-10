@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:94d4cbf2975e5a83f77b4b94eab3f8f1207374bd4b2dec9de3b097b5689b95a2"
+content_hash = "sha256:a37096bbff3a7e76d8ebc8e0a022b3d91beabedc16858bd42a67c70febb36f10"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -147,6 +147,22 @@ dependencies = [
     "python-dateutil>=2.8.2",
     "tzdata>=2022.7",
     "vine<6.0,>=5.1.0",
+]
+files = [
+    {file = "celery-5.4.0-py3-none-any.whl", hash = "sha256:369631eb580cf8c51a82721ec538684994f8277637edde2dfc0dacd73ed97f64"},
+    {file = "celery-5.4.0.tar.gz", hash = "sha256:504a19140e8d3029d5acad88330c541d4c3f64c789d85f94756762d8bca7e706"},
+]
+
+[[package]]
+name = "celery"
+version = "5.4.0"
+extras = ["redis"]
+requires_python = ">=3.8"
+summary = "Distributed Task Queue."
+groups = ["default"]
+dependencies = [
+    "celery==5.4.0",
+    "redis!=4.5.5,<6.0.0,>=4.5.2",
 ]
 files = [
     {file = "celery-5.4.0-py3-none-any.whl", hash = "sha256:369631eb580cf8c51a82721ec538684994f8277637edde2dfc0dacd73ed97f64"},
@@ -416,6 +432,20 @@ dependencies = [
 files = [
     {file = "Django-5.1.4-py3-none-any.whl", hash = "sha256:236e023f021f5ce7dee5779de7b286565fdea5f4ab86bae5338e3f7b69896cf0"},
     {file = "Django-5.1.4.tar.gz", hash = "sha256:de450c09e91879fa5a307f696e57c851955c910a438a35e6b4c895e86bedc82a"},
+]
+
+[[package]]
+name = "django-celery-results"
+version = "2.5.1"
+summary = "Celery result backends for Django."
+groups = ["default"]
+dependencies = [
+    "Django>=3.2.18",
+    "celery<6.0,>=5.2.7",
+]
+files = [
+    {file = "django_celery_results-2.5.1-py3-none-any.whl", hash = "sha256:0da4cd5ecc049333e4524a23fcfc3460dfae91aa0a60f1fae4b6b2889c254e01"},
+    {file = "django_celery_results-2.5.1.tar.gz", hash = "sha256:3ecb7147f773f34d0381bac6246337ce4cf88a2ea7b82774ed48e518b67bb8fd"},
 ]
 
 [[package]]

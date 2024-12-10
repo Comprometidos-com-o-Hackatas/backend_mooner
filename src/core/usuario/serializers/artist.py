@@ -13,17 +13,9 @@ class UsuarioSeriazlier(ModelSerializer):
             "is_active",
             "is_artist",
             "date_joined",
-<<<<<<< HEAD
-            "perfil",
-            "background_image",
-            "background_dark_color",
-            "background_light_color",
-            "description"
-=======
-            "perfil",  # Inclua este campo se o perfil estiver relacionado
+            "perfil",  
             "background_light_color",
             "background_dark_color"
->>>>>>> bfd4600 (FEAT: Fixed things)
         ]
         depth = 2
 

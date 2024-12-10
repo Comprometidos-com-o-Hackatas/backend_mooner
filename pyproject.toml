@@ -24,7 +24,7 @@ dependencies = [
     "django-filter>=24.3",
     "django-simple-history>=3.7.0",
     "drf-spectacular>=0.27.2",
-    "celery>=5.4.0",
+    "celery[redis]>=5.4.0",
     "psycopg2-binary>=2.9.10",
     "waitress>=3.0.0",
     "cloudinary>=1.41.0",
@@ -41,6 +41,7 @@ dependencies = [
     "uvicorn>=0.32.1",
     "twisted[http2]>=24.11.0",
     "dj-database-url>=2.3.0",
+    "django-celery-results>=2.5.1",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"

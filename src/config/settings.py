@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'simple_history',
     "drf_spectacular",
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -264,6 +265,10 @@ EMAIL_USE_TLS=True
 EMAIL_PORT=587
 EMAIL_HOST_USER="luansilva250807@gmail.com"
 EMAIL_HOST_PASSWORD="pjgn ixgg mczw ojss"
+
+CELERY_TASK_ALWAYS_EAGER = False
+CELERY_BROKER_URL = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:16798'
+CELERY_RESULT_BACKEND = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:6379/0'
 
 
 django_heroku.settings(locals())
