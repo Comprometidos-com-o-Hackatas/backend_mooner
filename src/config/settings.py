@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'core.uploader',
     'core.usuario',
     'core.moon_wave',
-    "core.django_populate.infra.populate",
     "corsheaders",
     'django_filters',
     'rest_framework',
