@@ -22,7 +22,6 @@ app.conf.task_always_eager = False
 #   should have a `CELERY_` prefix.
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
-print(app, 'teste')
 
 @app.task(bind=True, ignore_result=True)
 def debug_task(self):
