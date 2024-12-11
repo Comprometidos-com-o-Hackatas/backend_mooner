@@ -6,7 +6,7 @@ from django.conf import settings
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
-BROKER_URL = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:16798'
+BROKER_URL = 'amqps://vvonqxhz:VZJ604srrslOgFTor2L2ge36GrDUhUzp@toad.rmq.cloudamqp.com/vvonqxhz'
 
 app = Celery('config', broker=BROKER_URL)
 

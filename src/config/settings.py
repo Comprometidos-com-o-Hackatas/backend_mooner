@@ -273,8 +273,12 @@ EMAIL_PORT=587
 EMAIL_HOST_USER="luansilva250807@gmail.com"
 EMAIL_HOST_PASSWORD="pjgn ixgg mczw ojss"
 
-CELERY_BROKER_URL = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:16798'
-CELERY_RESULT_BACKEND = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:16798/0'
+
+CELERY_TIMEZONE: str = "America/Sao_Paulo"
+CELERY_TASK_TRACK_STARTED: bool = True
+CELERY_TASK_TIME_LIMIT: int = 30 * 60
+CELERY_BROKER_URL = 'amqps://vvonqxhz:VZJ604srrslOgFTor2L2ge36GrDUhUzp@toad.rmq.cloudamqp.com/vvonqxhz'
+CELERY_RESULT_BACKEND = None
 
 
 django_heroku.settings(locals())
