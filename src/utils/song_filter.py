@@ -4,7 +4,7 @@ from core.mooner.models import Song
 
 class SongFilter(django_filters.FilterSet):
     search = django_filters.CharFilter(method='get_title_or_artist')
-
+    artists = django_filters.BaseInFilter(field_name='artists__artistic_name', lookup_expr='in')
     class Meta:
         model = Song
         fields = ['search']

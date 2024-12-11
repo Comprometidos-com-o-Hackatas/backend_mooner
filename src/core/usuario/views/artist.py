@@ -5,12 +5,13 @@ from rest_framework.response import Response
 from ..serializers import ArtistCreateSerializer, ArtistSerializer
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
+from utils.artist_filter import ArtistFilter
 
 
 class ArtistViewSet(ModelViewSet):
     queryset = Artist.objects.all()
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ('artistic_name',)
+    filterset_class = ArtistFilter
 
     def get_serializer_class(self):
         if self.action == 'create':

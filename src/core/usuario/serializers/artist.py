@@ -13,11 +13,9 @@ class UsuarioSeriazlier(ModelSerializer):
             "is_active",
             "is_artist",
             "date_joined",
-            "perfil",
-            "background_image",
-            "background_dark_color",
+            "perfil",  
             "background_light_color",
-            "description"
+            "background_dark_color"
         ]
         depth = 2
 
