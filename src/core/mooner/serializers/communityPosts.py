@@ -2,6 +2,8 @@ from ..models import CommunityPosts
 from core.usuario.models import Artist, Usuario
 from rest_framework import serializers
 from core.uploader.models import Image
+from rest_framework.response import Response
+from rest_framework import status
 
 class PerfilSerializer(serializers.ModelSerializer):
     class Meta:

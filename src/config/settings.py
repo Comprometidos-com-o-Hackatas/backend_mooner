@@ -33,9 +33,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG= os.environ.get("DEBUG")
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split('  ')
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
@@ -144,6 +144,16 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
+""""
 DATABASES = {
     'default': {
         'default': dj_database_url.config(default=os.environ.get("DATABASE_URL")),
@@ -155,9 +165,7 @@ DATABASES = {
         "PASSWORD": os.environ.get("DATABASE_PASSWORD")
     }
 }
-
-
-
+"""""""""
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

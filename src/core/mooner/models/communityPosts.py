@@ -7,7 +7,7 @@ class CommunityPosts(models.Model):
     description = models.TextField(null=True, max_length=850)
     autor = models.ForeignKey(Artist, on_delete=models.PROTECT)
     cover = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True, null=True, default=None, related_name='+')
-    community = models.ForeignKey(Community, on_delete=models.PROTECT, null=True)
+    community = models.ForeignKey(Community, on_delete=models.CASCADE, null=True)
     likes = models.IntegerField(default=0, null=True, blank=True)
     dislikes = models.IntegerField(default=0, null=True, blank=True)
 
