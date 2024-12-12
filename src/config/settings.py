@@ -130,13 +130,7 @@ CHANNEL_LAYERS = {
     'default': {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [{
-                "host": os.environ.get("REDIS_HOST"),
-                "port": 16798,
-                "decode_responses": True,
-                "username": os.environ.get("REDIS_USERNAME"),
-                "password": os.environ.get("REDIS_PASSWORD"),
-            }],
+            "hosts": [("127.0.0.1", 6379)],
         },
     },
 }
@@ -279,4 +273,3 @@ CELERY_BROKER_URL = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-1679
 CELERY_RESULT_BACKEND = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:6379/0'
 
 
-django_heroku.settings(locals())
