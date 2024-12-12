@@ -1,5 +1,5 @@
 from ..models import Artist, Usuario
-from rest_framework.decorators import api_view
+from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from ..serializers import ArtistCreateSerializer, ArtistSerializer
@@ -18,7 +18,6 @@ class ArtistViewSet(ModelViewSet):
             return ArtistCreateSerializer
         return ArtistSerializer
 
-@api_view(['GET'])
 def verify_email(req, verification_token):
     try:
         user = Usuario.objects.get(token_verification=verification_token)
@@ -29,4 +28,4 @@ def verify_email(req, verification_token):
     user.token_verification = None 
     user.save()
 
-    return Response({'message': 'Usuário verificado com sucesso, volte para o site'}, status=status.HTTP_200_OK)
+    return render(req, 'back_to_site.html', status=status.HTTP_200_OK)

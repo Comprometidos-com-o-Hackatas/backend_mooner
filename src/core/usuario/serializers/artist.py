@@ -2,26 +2,14 @@ from rest_framework.serializers import ModelSerializer, SlugRelatedField
 from ..models import Usuario as User
 from ..models import Artist
 
-
-class UsuarioSeriazlier(ModelSerializer):
+class UserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = [
-            "email",
-            "first_name",
-            "last_name",
-            "is_active",
-            "is_artist",
-            "date_joined",
-            "perfil",  
-            "background_light_color",
-            "background_dark_color"
-        ]
-        depth = 2
-
+        fields = '__all__'
+        depth=2
+        
 class ArtistSerializer(ModelSerializer):
-    # user = SlugRelatedField(slug_field="email", queryset=User.objects.all())
-    user = UsuarioSeriazlier()
+    user = UserSerializer()
     class Meta:
         model = Artist
         fields = '__all__'
@@ -32,7 +20,6 @@ class ArtistCreateSerializer(ModelSerializer):
     class Meta:
         model = Artist
         fields = '__all__'
-        depth = 2
 
 
         

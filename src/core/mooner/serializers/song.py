@@ -34,8 +34,6 @@ class SongSerializer(serializers.ModelSerializer):
         queryset=Document.objects.all(),
         slug_field="attachment_key",
     )
-    depth = 2
-
     class Meta:
         model = Song
         fields = '__all__'

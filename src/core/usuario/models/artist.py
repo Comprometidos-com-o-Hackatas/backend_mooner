@@ -12,7 +12,6 @@ from core.email_verification.send_email_verification_artist import send_email_to
 
 class Artist(models.Model):
     user = models.OneToOneField(Usuario, on_delete=models.CASCADE, primary_key=True)
-    # profile = models.OneToOneField(Usuario.profile, )
     artistic_name = models.CharField(max_length=100, blank=True, null=True)
     following = models.IntegerField(default=0, blank=True, null=True)
     followers = models.IntegerField(default=0, blank=True, null=True)
