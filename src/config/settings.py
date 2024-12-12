@@ -129,13 +129,7 @@ CHANNEL_LAYERS = {
     'default': {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [{
-                "host": os.environ.get("REDIS_HOST"),
-                "port": 16798,
-                "decode_responses": True,
-                "username": os.environ.get("REDIS_USERNAME"),
-                "password": os.environ.get("REDIS_PASSWORD"),
-            }],
+            "hosts": [("127.0.0.1", 6379)],
         },
     },
 }
@@ -281,4 +275,3 @@ CELERY_BROKER_URL = 'amqps://vvonqxhz:VZJ604srrslOgFTor2L2ge36GrDUhUzp@toad.rmq.
 CELERY_RESULT_BACKEND = None
 
 
-django_heroku.settings(locals())
