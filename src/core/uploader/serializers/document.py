@@ -6,9 +6,9 @@ from core.uploader.helpers.files import CONTENT_TYPE_PDF, get_content_type, CONT
 from core.uploader.models import Document
 timestamp = int(time.time())
 
-CLOUD_NAME = "dzdrwmug3"
-API_KEY = "565711445643767"
-API_SECRET = "IUqLGohAjDObKXWnjV-XJQcbI4c"
+CLOUD_NAME = "dhft56ct1"
+API_KEY = "346858419386854"
+API_SECRET = "Dg2bM10W5cFq7WuvCVhnf-1yts4"
 
 cloudinary.config(
     cloud_name=CLOUD_NAME,

@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'simple_history',
     "drf_spectacular",
     'django_celery_results',
+    'core.django_populate.infra.populate'
 ]
 
 MIDDLEWARE = [
@@ -129,7 +130,13 @@ CHANNEL_LAYERS = {
     'default': {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+            "hosts": [{
+                "host": os.environ.get("REDIS_HOST"),
+                "port": 16798,
+                "decode_responses": True,
+                "username": os.environ.get("REDIS_USERNAME"),
+                "password": os.environ.get("REDIS_PASSWORD"),
+            }],
         },
     },
 }
@@ -140,10 +147,7 @@ CHANNEL_LAYERS = {
 
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
 
 
@@ -275,3 +279,4 @@ CELERY_BROKER_URL = 'amqps://vvonqxhz:VZJ604srrslOgFTor2L2ge36GrDUhUzp@toad.rmq.
 CELERY_RESULT_BACKEND = None
 
 
+django_heroku.settings(locals())
