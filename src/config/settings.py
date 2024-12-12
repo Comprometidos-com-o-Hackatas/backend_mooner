@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     'simple_history',
     "drf_spectacular",
     'django_celery_results',
-    'core.django_populate.infra.populate'
 ]
 
 MIDDLEWARE = [
