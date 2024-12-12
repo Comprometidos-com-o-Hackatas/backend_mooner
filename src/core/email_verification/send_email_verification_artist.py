@@ -31,9 +31,3 @@ def send_email_to_user_to_be_an_artist(user, verify_url):
     print(email_multi_alternative)
 
     return Response(status=status.HTTP_200_OK, data={'msg': f'email enviado para {user}'})
-
-
-@shared_task
-def test_task():
-    print("Task executed!")
-
