@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'core.uploader',
     'core.usuario',
     'core.moon_wave',
-    "core.django_populate.infra.populate",
     "corsheaders",
     'django_filters',
     'rest_framework',
@@ -67,6 +66,7 @@ INSTALLED_APPS = [
     'simple_history',
     "drf_spectacular",
     'django_celery_results',
+    
 ]
 
 MIDDLEWARE = [
@@ -130,7 +130,13 @@ CHANNEL_LAYERS = {
     'default': {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+            "hosts": [{
+                "host": os.environ.get("REDIS_HOST"),
+                "port": 16798,
+                "decode_responses": True,
+                "username": os.environ.get("REDIS_USERNAME"),
+                "password": os.environ.get("REDIS_PASSWORD"),
+            }],
         },
     },
 }
@@ -268,8 +274,12 @@ EMAIL_PORT=587
 EMAIL_HOST_USER="luansilva250807@gmail.com"
 EMAIL_HOST_PASSWORD="pjgn ixgg mczw ojss"
 
-CELERY_TASK_ALWAYS_EAGER = False
-CELERY_BROKER_URL = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:16798'
-CELERY_RESULT_BACKEND = 'redis://default:vo0nNYwJoubyuPd8Oy2sQjXrJh0dlHja@redis-16798.c11.us-east-1-3.ec2.redns.redis-cloud.com:6379/0'
+
+CELERY_TIMEZONE: str = "America/Sao_Paulo"
+CELERY_TASK_TRACK_STARTED: bool = True
+CELERY_TASK_TIME_LIMIT: int = 30 * 60
+CELERY_BROKER_URL = 'amqps://vvonqxhz:VZJ604srrslOgFTor2L2ge36GrDUhUzp@toad.rmq.cloudamqp.com/vvonqxhz'
+CELERY_RESULT_BACKEND = None
 
 
+django_heroku.settings(locals())
